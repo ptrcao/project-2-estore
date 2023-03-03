@@ -38,6 +38,10 @@ Product.init(
       type: DataTypes.STRING(250),
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING(250),
+      allowNull: false,
+    },
     // This column will store a reference of the `id` of the `Category` that subsumes this product
     product_category_id: {
       type: DataTypes.INTEGER,

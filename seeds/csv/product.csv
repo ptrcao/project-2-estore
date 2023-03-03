@@ -1,21 +1,31 @@
-id,product_name,price,stock,product_category_id,image_url
-1,Widget A,12.99,100,1,/images/widget_a.jpg
-2,Widget B,9.99,75,1,/images/widget_b.jpg
-3,Widget C,15.99,50,1,/images/widget_c.jpg
-4,Thingamajig A,24.99,25,2,/images/thingamajig_a.jpg
-5,Thingamajig B,19.99,40,2,/images/thingamajig_b.jpg
-6,Thingamajig C,29.99,15,2,/images/thingamajig_c.jpg
-7,Doohickey A,7.99,200,3,/images/doohickey_a.jpg
-8,Doohickey B,6.99,150,3,/images/doohickey_b.jpg
-9,Doohickey C,8.99,100,3,/images/doohickey_c.jpg
-10,Whatchamacallit A,34.99,10,4,/images/whatchamacallit_a.jpg
-11,Whatchamacallit B,29.99,20,4,/images/whatchamacallit_b.jpg
-12,Whatchamacallit C,39.99,5,4,/images/whatchamacallit_c.jpg
-13,Gadget A,49.99,3,5,/images/gadget_a.jpg
-14,Gadget B,39.99,10,5,/images/gadget_b.jpg
-15,Gadget C,59.99,2,5,/images/gadget_c.jpg
-16,Thingy A,14.99,60,6,/images/thingy_a.jpg
-17,Thingy B,11.99,100,6,/images/thingy_b.jpg
-18,Thingy C,19.99,30,6,/images/thingy_c.jpg
-19,Contraption A,99.99,1,7,/images/contraption_a.jpg
-20,Contraption B,74.99,5,7,/images/contraption_b.jpg
+id,product_name,price,stock,product_category_id,image_url,description
+1,Emerald Floral Skirt,44.99,100,1,/prod_images/placeholder-1.png,"Elevate your wardrobe with our stunning Tallie Midi Pleat Skirt, featuring a beautiful emerald color and blush floral chiffon detail."
+2,Casual Cotton Skirt,39.99,75,1,/prod_images/placeholder-1.png,"Our Katies Cotton Blend Casual Skirts are perfect for any occasion, with a comfortable and stylish design that you'll love."
+3,Ruched Pocket Skirt,29.99,50,1,/prod_images/placeholder-1.png,"Flaunt your curves in our EMERY ROSE Ruched Wideband Waist Hidden Pocket Skirt, featuring a flattering and functional design."
+4,Classic Beanie,24.99,25,2,/prod_images/placeholder-1.png,"Stay cozy and stylish with our Classic Beanie, perfect for any cold weather outfit."
+5,Chunky Knit Beanie,19.99,40,2,/prod_images/placeholder-1.png,"Our Chunky Knit Beanie is a winter essential, with a warm and trendy design that you'll love."
+6,Ribbed Wool Beanie,29.99,15,2,/prod_images/placeholder-1.png,"Stay warm and fashionable with our Ribbed Wool Beanie, featuring a classic and stylish design."
+7,Sheer Pantyhose,7.99,200,3,/prod_images/placeholder-1.png,"Complete your outfit with our Sheer Pantyhose, featuring a comfortable and flattering fit."
+8,Fishnet Tights,6.99,150,3,/prod_images/placeholder-1.png,"Add some edge to your look with our Fishnet Tights, perfect for dressing up any outfit."
+9,Thigh High Stockings,8.99,100,3,/prod_images/placeholder-1.png,"Feel sexy and confident with our Thigh High Stockings, featuring a flattering and comfortable design."
+10,Classic Suit Jacket,34.99,10,4,/prod_images/placeholder-1.png,"Make a statement with our Classic Suit Jacket, perfect for any formal occasion."
+11,Dress Pants,29.99,20,4,/prod_images/placeholder-1.png,"Our Dress Pants are a wardrobe essential, featuring a comfortable and versatile design that you can wear anywhere."
+12,Double-Breasted Blazer,39.99,5,4,/prod_images/placeholder-1.png,"Elevate your look with our Double-Breasted Blazer, featuring a sophisticated and stylish design."
+13,Leather Wallet,49.99,3,5,/prod_images/placeholder-1.png,"Organize your essentials in style with our Leather Wallet, featuring a sleek and durable design."
+14,Silk Tie,39.99,10,5,/prod_images/placeholder-1.png,"Add some class to your outfit with our Silk Tie, featuring a luxurious and elegant design."
+15,Metal Watch,59.99,2,5,/prod_images/placeholder-1.png,"Make a statement with our Metal Watch, featuring a bold and modern design that will elevate any look."
+16,Canvas Tote Bag,14.99,60,6,/prod_images/placeholder-1.png,"Carry your essentials in style with our Canvas Tote Bag, featuring a sturdy and practical design."
+17,Thingy B,11.99,100,6,/prod_images/placeholder-1.png,"Complete your look with our stylish Thingy B, featuring a unique and eye-catching design."
+18,Thingy C,19.99,30,6,/prod_images/placeholder-1.png,"Add some flair to your outfit with our Thingy C, featuring a fun and playful design."
+19,Contraption A,99.99,1,7,/prod_images/placeholder-1.png,"Stay ahead of the game with our Contraption A, featuring cutting-edge technology and a sleek design."
+20,Contraption B,74.99,5,7,/prod_images/placeholder-1.png,"Get ready to impress with our Contraption B, featuring a stylish and sophisticated design."
+21,Womens Beach Hat,14.99,25,1,/prod_images/placeholder-1.png,"Stay protected from the sun in style with our Womens Beach Hat, featuring a comfortable and breathable design."
+22,Mens Sunglasses,29.99,50,5,/prod_images/placeholder-1.png,"Protect your eyes while looking cool with our Mens Sunglasses, featuring a classic and stylish design."
+23,Womens Tennis Shoes,49.99,40,1,/prod_images/placeholder-1.png,"Take your game to the next level with our Womens Tennis Shoes, featuring a durable and comfortable design."
+24,Mens Running Shoes,59.99,20,5,/prod_images/placeholder-1.png,"Go the distance in style with our Mens Running Shoes, featuring a lightweight and breathable design."
+25,Womens Hooded Sweatshirt,34.99,30,1,/prod_images/placeholder-1.png,"Stay cozy and stylish with our Womens Hooded Sweatshirt, featuring a soft and comfortable design."
+26,Mens Fleece Jacket,59.99,15,5,/prod_images/placeholder-1.png,"Stay warm and fashionable with our Mens Fleece Jacket, featuring a classic and versatile design."
+27,Gift Set for Her,49.99,10,6,/prod_images/placeholder-1.png,"Treat yourself or someone special to our Gift Set for Her, featuring a curated selection of our best-selling products."
+28,Gift Set for Him,39.99,10,5,/prod_images/placeholder-1.png,"Surprise him with our Gift Set for Him, featuring a collection of high-quality grooming essentials and accessories."
+29,Boys Football Cleats,29.99,5,7,/prod_images/placeholder-1.png,"Score the winning goal in our Boys Football Cleats, featuring a durable and comfortable design."
+30,Girls Dance Leotard,19.99,20,6,/prod_images/placeholder-1.png,"Dance the night away in style with our Girls Dance Leotard, featuring a comfortable and flattering fit."

@@ -12,9 +12,14 @@ ProductCategory.init(
     allowNull: false
   },
     product_category_name: { 
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING(250), 
       allowNull: false, 
       defaultValue: 'Uncategorized' 
+    },
+    sex: {
+      type: DataTypes.STRING(10), 
+      allowNull: false, 
+      defaultValue: 'Unisex'
     }
   },
   {
