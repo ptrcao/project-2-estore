@@ -58,13 +58,13 @@ ShippingAddress.init(
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    shipping_address_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "order",
-        key: "shipping_address_id"
-      },
-    },
+    // shipping_address_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "order",
+    //     key: "shipping_address_id"
+    //   },
+    // },
   },
   {
     sequelize,
