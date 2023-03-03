@@ -1,0 +1,7 @@
+id,customer_first_name,customer_last_name,company_name,customer_email,customer_phone_number
+1,John,Smith,ABC Inc,john.smith@example.com,0412345678
+2,Jane,Doe,XYZ Company,jane.doe@example.com,0498765432
+3,Robert,Johnson,Johnson and Johnson,robert.johnson@example.com,0456789123
+4,Emily,Davis,Davis Co.,emily.davis@example.com,0412345678
+5,William,Clark,Clark & Sons,william.clark@example.com,0423456789
+6,Olivia,Moore,Moore Enterprises,olivia.moore@example.com,0400123456

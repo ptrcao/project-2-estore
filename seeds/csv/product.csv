@@ -1,0 +1,21 @@
+id,product_name,price,stock,product_category_id,image_url
+1,Widget A,12.99,100,1,/images/widget_a.jpg
+2,Widget B,9.99,75,1,/images/widget_b.jpg
+3,Widget C,15.99,50,1,/images/widget_c.jpg
+4,Thingamajig A,24.99,25,2,/images/thingamajig_a.jpg
+5,Thingamajig B,19.99,40,2,/images/thingamajig_b.jpg
+6,Thingamajig C,29.99,15,2,/images/thingamajig_c.jpg
+7,Doohickey A,7.99,200,3,/images/doohickey_a.jpg
+8,Doohickey B,6.99,150,3,/images/doohickey_b.jpg
+9,Doohickey C,8.99,100,3,/images/doohickey_c.jpg
+10,Whatchamacallit A,34.99,10,4,/images/whatchamacallit_a.jpg
+11,Whatchamacallit B,29.99,20,4,/images/whatchamacallit_b.jpg
+12,Whatchamacallit C,39.99,5,4,/images/whatchamacallit_c.jpg
+13,Gadget A,49.99,3,5,/images/gadget_a.jpg
+14,Gadget B,39.99,10,5,/images/gadget_b.jpg
+15,Gadget C,59.99,2,5,/images/gadget_c.jpg
+16,Thingy A,14.99,60,6,/images/thingy_a.jpg
+17,Thingy B,11.99,100,6,/images/thingy_b.jpg
+18,Thingy C,19.99,30,6,/images/thingy_c.jpg
+19,Contraption A,99.99,1,7,/images/contraption_a.jpg
+20,Contraption B,74.99,5,7,/images/contraption_b.jpg
