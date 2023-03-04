@@ -20,10 +20,10 @@ Customer.init(
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    company_name: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
+    // company_name: {
+    //   type: DataTypes.STRING(100),
+    //   allowNull: true,
+    // },
     customer_email: {
         type: DataTypes.STRING(100),
         allowNull: false,

@@ -25,7 +25,7 @@ form.addEventListener('submit', function(event) {
   
   const customerFirstName = document.getElementById('customer-first-name').value;
   const customerLastName = document.getElementById('customer-last-name').value;
-  const customerCompanyName = document.getElementById('customer-company-name').value;
+//   const customerCompanyName = document.getElementById('customer-company-name').value;
   const customerEmail = document.getElementById('customer-email').value;
   const customerPhoneNumber = document.getElementById('customer-phone-number').value;
   
@@ -50,7 +50,7 @@ form.addEventListener('submit', function(event) {
     cardCvv,
     customerFirstName,
     customerLastName,
-    customerCompanyName,
+    // customerCompanyName,
     customerEmail,
     customerPhoneNumber
   };
