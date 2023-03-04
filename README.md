@@ -30,9 +30,9 @@ mysql -u root -p
 source schema.sql
 ```
 7. cd to /
-8. Start server:
+8. Start server (make sure you are in root dir):
 ```
-node /server.js
+node server.js
 ```
 
 9. Seed the database:
