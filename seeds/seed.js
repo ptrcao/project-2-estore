@@ -1,6 +1,8 @@
 const sequelize = require('../config/connection');
 const { readCSV } = require("../helpers/read_csv");
 
+const path = require('path');
+
 const { BillingAddress, 
     Customer,
     OrderProduct,
@@ -16,9 +18,13 @@ const seedAll = async() => {
 await sequelize.sync({ force: true });
 console.log('\n----- DATABASE SYNCED -----\n');
 
+// This will be more reliable
+// const customerData = await readCSV(path.join(__dirname, 'csv', 'customer.csv'));
+// than
+// const customerData = await readCSV('./csv/customer.csv');
+// across different OSs
 
-
-const customerData = await readCSV('./csv/customer.csv');
+const customerData = await readCSV(path.join(__dirname, 'csv', 'customer.csv'));
 await Customer.bulkCreate(customerData);
 console.log('\n----- customer SEEDED -----\n');
 
@@ -30,15 +36,15 @@ console.log('\n----- customer SEEDED -----\n');
 
 // Lastly, ensure that the order_product table is defined with the foreign key constraint properly referencing the id column in the order table.
 
-const billingAddressData = await readCSV('./csv/billing_address.csv');
+const billingAddressData = await readCSV(path.join(__dirname, 'csv', 'billing_address.csv'));
 await BillingAddress.bulkCreate(billingAddressData);
 console.log('\n----- billing_address SEEDED -----\n');
 
-const shippingAddressData = await readCSV('./csv/shipping_address.csv');
+const shippingAddressData = await readCSV(path.join(__dirname, 'csv', 'shipping_address.csv'));
 await ShippingAddress.bulkCreate(shippingAddressData);
 console.log('\n----- shipping_addresses SEEDED -----\n');
 
-const orderData = await readCSV('./csv/order.csv');
+const orderData = await readCSV(path.join(__dirname, 'csv', 'order.csv'));
 await Order.bulkCreate(orderData);
 console.log('\n----- order SEEDED -----\n');
 
@@ -48,17 +54,17 @@ console.log('\n----- order SEEDED -----\n');
 
 // To fix the issue, the seeding order of the tables should be adjusted so that the tables are seeded in the correct order, starting with the parent tables and then moving on to the child tables.
 
-const productCategoryData = await readCSV('./csv/product_category.csv');
+const productCategoryData = await readCSV(path.join(__dirname, 'csv', 'product_category.csv'));
 await ProductCategory.bulkCreate(productCategoryData);
 console.log('\n----- product_category SEEDED -----\n');
 
 // Based on the foreign key constraint error message in the seed file, it seems that the product_category table should be seeded first, as it is referenced by the product table through its product_category_id column. Therefore, before any product can be inserted into the product table, the corresponding product category must already exist in the product_category table.
 
-const productData = await readCSV('./csv/product.csv');
+const productData = await readCSV(path.join(__dirname, 'csv', 'product.csv'));
 await Product.bulkCreate(productData);
 console.log('\n----- product SEEDED -----\n');
 
-const orderProductData = await readCSV('./csv/order_product.csv');
+const orderProductData = await readCSV(path.join(__dirname, 'csv', 'order_product.csv'));
 await OrderProduct.bulkCreate(orderProductData);
 console.log('\n----- order_product SEEDED -----\n');
 
