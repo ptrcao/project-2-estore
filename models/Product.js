@@ -42,11 +42,9 @@ Product.init(
       type: DataTypes.STRING(250),
       allowNull: false,
     },
-    // This column will store a reference of the `id` of the `Category` that subsumes this product
     product_category_id: {
       type: DataTypes.INTEGER,
       references: {
-        // This references the `category` model, which we set in `Category.js` as its 
         model: 'product_category',
         key: 'id',
       },

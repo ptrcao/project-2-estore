@@ -17,11 +17,11 @@ ShippingAddress.init(
       autoIncrement: true
     },
     receiver_first_name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false
     },
     receiver_last_name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
       validate: {
       notEmpty: true,
