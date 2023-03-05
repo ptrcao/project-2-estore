@@ -29,10 +29,15 @@ mysql -u root -p
 ```
 source schema.sql
 ```
-7. cd to /
-8. Start server (make sure you are in root dir):
+7. cd back to the project root
+
+8. Start server:
 ```
 node server.js
+```
+or, if you are using a start script defined in your package.json, for example, in the case of using nodemon:
+```
+npm run start
 ```
 
 9. Seed the database:
