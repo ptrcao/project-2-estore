@@ -1,0 +1,7 @@
+id,company_name,address_line_1,address_line_2,state,postcode,country
+1,,123 Main St,,NSW,2000,Australia
+2,ABC Company,456 Elm St,,VIC,3000,Australia
+3,,789 Oak St,Apt 1,QLD,4000,Australia
+4,XYZ Corporation,321 Pine Ave,Apt 2,NSW,2000,Australia
+5,,654 Maple Ln,,VIC,3000,Australia
+6,Acme Corp,987 Cherry Blvd,Suite 3,QLD,4000,Australia

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+  </head>
+  <body>
+    <a href="/cart">&lt;&lt; BACK TO CART</a>
+    <h1>Checkout your order</h1>
+    <form id="checkout-form">
+      <!-- Customer Information -->
+      <div>
+        <h2>Customer Information</h2>
+        <div>
+          <label for="customer-first-name">First Name</label>
+          <input
+            type="text"
+            id="customer-first-name"
+            name="customerFirstName"
+            required
+          />
+        </div>
+        <div>
+          <label for="customer-last-name">Last Name</label>
+          <input
+            type="text"
+            id="customer-last-name"
+            name="customerLastName"
+            required
+          />
+        </div>
+        <!-- <div>
+        <label for="customer-company-name">Company Name (optional)</label>
+        <input type="text" id="customer-company-name" name="customer-company-name">
+      </div> -->
+        <div>
+          <label for="customer-email">Email</label>
+          <input
+            type="email"
+            id="customer-email"
+            name=" customerEmail"
+            required
+          />
+        </div>
+        <div>
+          <label for="customer-phone-number">Phone Number</label>
+          <input
+            type="tel"
+            id="customer-phone-number"
+            name="customerPhoneNumber"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Billing Address -->
+      <div>
+        <h2>Billing Address</h2>
+        <div>
+          <label for="billing-company-name">Company Name (optional)</label>
+          <input
+            type="text"
+            id="billing-company-name"
+            name="billingCompanyName"
+          />
+        </div>
+        <div>
+          <label for="billing-address-line-1">Address Line 1</label>
+          <input
+            type="text"
+            id="billing-address-line-1"
+            name="billingAddressLine1"
+            required
+          />
+        </div>
+        <div>
+          <label for="billing-address-line-2">Address Line 2 (optional)</label>
+          <input
+            type="text"
+            id="billing-address-line-2"
+            name="billingAddressLine2"
+          />
+        </div>
+        <div>
+          <label for="billing-state">State/Province</label>
+          <input type="text" id="billing-state" name="billingState" required />
+        </div>
+        <div>
+          <label for="billing-postcode">Postal Code</label>
+          <input
+            type="text"
+            id="billing-postcode"
+            name="billingPostalCode"
+            required
+          />
+        </div>
+        <div>
+          <label for="billing-country">Country</label>
+          <input
+            type="text"
+            id="billing-country"
+            name="billingCountry"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Shipping Address -->
+      <div>
+        <h2>Shipping Address</h2>
+        <div>
+          <label for="shipping-receiver-first-name">Receiver First Name</label>
+          <input
+            type="text"
+            id="shipping-receiver-first-name"
+            name="shippingFirstName"
+            required
+          />
+        </div>
+        <div>
+          <label for="shipping-receiver-last-name">Receiver Last Name</label>
+          <input
+            type="text"
+            id="shipping-receiver-last-name"
+            name="shippingLastName"
+            required
+          />
+        </div>
+        <div>
+          <label for="shipping-receiver-phone-number"
+            >Receiver Phone Number</label
+          >
+          <input
+            type="tel"
+            id="shipping-receiver-phone-number"
+            name="shippingPhoneNumber"
+            required
+          />
+        </div>
+        <div>
+          <label for="shipping-company-name">Company Name (optional)</label>
+          <input
+            type="text"
+            id="shipping-company-name"
+            name="shippingCompanyName"
+          />
+        </div>
+        <div>
+          <label for="shipping-address-line-1">Address Line 1</label>
+          <input
+            type="text"
+            id="shipping-address-line-1"
+            name="shippingAddressLine1"
+            required
+          />
+        </div>
+        <div>
+          <label for="shipping-address-line-2">Address Line 2 (optional)</label>
+          <input
+            type="text"
+            id="shipping-address-line-2"
+            name="shippingAddressLine2"
+          />
+        </div>
+        <div>
+          <label for="shipping-state">State/Province</label>
+          <input
+            type="text"
+            id="shipping-state"
+            name="shippingState"
+            required
+          />
+        </div>
+        <div>
+          <label for="shipping-postcode">Postal Code</label>
+          <input
+            type="text"
+            id="shipping-postcode"
+            name="shippingPostalCode"
+            required
+          />
+        </div>
+        <div>
+          <label for="shipping-country">Country</label>
+          <input
+            type="text"
+            id="shipping-country"
+            name="shippingCountry"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Payment Information -->
+      <!-- No need for functionality of payment, it's just for show -->
+      <div>
+        <h2>Payment Information</h2>
+        <div>
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" name="cardNumber" required />
+        </div>
+        <div>
+          <label for="card-expiry">Card Expiry (MM/YY)</label>
+          <input type="text" id="card-expiry" name="cardExpiry" required />
+        </div>
+        <div>
+          <label for="card-cvv">CVV</label>
+          <input type="text" id="card-cvv" name="cardCvv" required />
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div>
+        <input type="submit" value="Place Order" />
+      </div>
+    </form>
+    <script type="application/javascript" src="./checkout.js"></script>
+  </body>
+</html>
