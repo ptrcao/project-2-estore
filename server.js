@@ -9,6 +9,12 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Expose the public_html folder to the client-side
+app.use(express.static('public_html'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public_html/index.html');
+});
 
 app.get('/cart', (req, res) => {
   res.sendFile(__dirname + '/public_html/cart.html');
