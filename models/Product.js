@@ -1,9 +1,5 @@
 // import important parts of sequelize library
-<<<<<<< HEAD
-const { Model, DataTypes, DECIMAL } = require('sequelize');
-=======
 const { Model, DataTypes } = require('sequelize');
->>>>>>> 94d00078959aeb56412fba15702e503ede884e3c
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
@@ -15,41 +11,6 @@ Product.init(
   {
     id: {
       type: DataTypes.INTEGER,
-<<<<<<< HEAD
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-      },
-  
-    product_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: String
-    },
-  
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-      validate: DECIMAL
-    },
-  
-    stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 10,
-      validate: {
-        isNumeric: true
-      },
-    },
-  
-    category_id: {
-      type: DataTypes.INTEGER,
-      referances: {
-        model: 'category',
-        key: 'id',
-      }
-    },
-=======
       primaryKey: true,
       allowNull: false,
       autoIncrement: true
@@ -91,7 +52,6 @@ Product.init(
       },
     },
     
->>>>>>> 94d00078959aeb56412fba15702e503ede884e3c
   },
   {
     sequelize,
@@ -102,8 +62,4 @@ Product.init(
   }
 );
 
-<<<<<<< HEAD
 module.exports = Product;
-=======
-module.exports = Product;
->>>>>>> 94d00078959aeb56412fba15702e503ede884e3c

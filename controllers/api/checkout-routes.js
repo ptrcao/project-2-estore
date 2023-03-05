@@ -2,7 +2,7 @@ const router = require('express').Router();
 const express = require('express');
 const { Product } = require('../../models');
 
-router.get('/api/orders', (req, res) => {
+router.get('/api/checkout', (req, res) => {
     // TODO: Implement logic to fetch all orders
     Product.FindAll().then((productData) => {
         res.json(productData);

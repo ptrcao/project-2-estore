@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-DROP DATABASE IF EXISTS product_db;
-CREATE DATABASE product_db;
-=======
 DROP DATABASE IF EXISTS estore_db;
 CREATE DATABASE estore_db;
 
@@ -22,4 +18,3 @@ CREATE DATABASE estore_db;
 
 USE estore_db;
 
->>>>>>> 94d00078959aeb56412fba15702e503ede884e3c
