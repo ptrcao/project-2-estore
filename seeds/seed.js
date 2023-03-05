@@ -11,6 +11,8 @@ const { BillingAddress,
     ProductCategory
 } = require('../models');
 
+
+const ProductCategoryGender = require('../models/Product_Category_gender');
 const ShippingAddress = require('../models/Shipping_Address');
 
 const seedAll = async() => {
@@ -53,6 +55,12 @@ console.log('\n----- order SEEDED -----\n');
 // Ah, I see. That makes sense. In that case, when the order table was being seeded, the foreign key constraint on the billing_address_id column was not being met because the corresponding data in the billing_address table did not exist yet. This would have caused the foreign key constraint error you were seeing.
 
 // To fix the issue, the seeding order of the tables should be adjusted so that the tables are seeded in the correct order, starting with the parent tables and then moving on to the child tables.
+
+
+
+const ProductCategoryGenderData = await readCSV(path.join(__dirname, 'csv', 'product_category_gender.csv'));
+await ProductCategoryGender.bulkCreate(ProductCategoryGenderData);
+console.log('\n----- product_category_gender SEEDED -----\n')
 
 const productCategoryData = await readCSV(path.join(__dirname, 'csv', 'product_category.csv'));
 await ProductCategory.bulkCreate(productCategoryData);

@@ -2,38 +2,31 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class ProductCategory extends Model {}
+class ProductCategoryGender extends Model {}
 
-ProductCategory.init(
+ProductCategoryGender.init(
   { id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
   },
-    product_category_name: { 
-      type: DataTypes.STRING(250), 
+    product_category_gender_name: { 
+      type: DataTypes.STRING(10), 
       allowNull: false,
     },
-    product_category_image: {
+    product_category_gender_image: {
       type: DataTypes.STRING(250),
       allowNull: true
     },
-    product_category_gender_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'product_category_gender',
-        key: 'id',
-      },
   },
-},
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product_category',
+    modelName: 'product_category_gender',
   }
 );
 
-module.exports = ProductCategory;
+module.exports = ProductCategoryGender;

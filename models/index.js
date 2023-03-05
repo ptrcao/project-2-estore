@@ -3,10 +3,10 @@ const BillingAddress = require('./Billing_Address');
 const Customer = require('./Customer')
 const OrderProduct = require('./Order_Product')
 const Order = require('./Order')
+const ProductCategoryGender = require('./Product_Category_Gender')
 const ProductCategory = require('./Product_Category');
 const Product = require('./Product');
 const ShippingAddress = require('./Shipping_Address');
-
 
 
 
@@ -45,6 +45,11 @@ Order.belongsTo(BillingAddress, { foreignKey: 'billing_address_id' });
 Product.belongsTo(ProductCategory, { foreignKey: 'product_category_id' });
 
 ProductCategory.hasMany(Product, { foreignKey: 'product_category_id' });
+
+// RELATIONSHIP between Product Category and Product Category Gender
+ProductCategory.belongsTo(ProductCategoryGender, { foreignKey: 'product_category_gender_id' });
+
+ProductCategoryGender.hasMany(ProductCategory, { foreignKey: 'product_category_gender_id' });
 
 
 
@@ -90,26 +95,6 @@ Customer.hasMany(Order, {
     foreignKey: 'customer_id'
   });
   
-  
-  
-  
-
-
-
-// foreignKey option specifies the foreign key column in the `Order` table
-// // Products belongsTo Product Category
-// Product.belongsTo(Category, {
-//     foreignKey: 'product_category_id',
-//   })
-// // Categories have many Products
-//   Category.hasMany(Product,{
-//     foreignKey: 'category_id'
-//   })
-
-
-
-
-
 
   module.exports = {
     BillingAddress,

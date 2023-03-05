@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Store Home</title>
+  </head>
+  <body>
+    <h1>EXAMPLE ONLY - HOME PAGE WITH CATEGORIES AND GENDER STORE DIVISIONS GO HERE</h1>
+    
+<!-- In your home.ejs view page: -->
+<h1>Men's Products</h1>
+<% categoriesByGender.forEach(category => {
+  if (category.product_category_sex_id === 2) { %>
+    <p><%= category.product_category_name %></p>
+  <% }
+}); %>
+<h1>Women's Products</h1>
+<% categoriesByGender.forEach(category => {
+  if (category.product_category_sex_id === 1) { %>
+    <p><%= category.product_category_name %></p>
+  <% }
+}); %>
+<h1>Kids' Products</h1>
+<% categoriesByGender.forEach(category => {
+  if (category.product_category_sex_id === 3) { %>
+    <p><%= category.product_category_name %></p>
+  <% }
+}); %>
+<h1>Unisex Products</h1>
+<% categoriesByGender.forEach(category => {
+  if (category.product_category_sex_id === 4) { %>
+    <p><%= category.product_category_name %></p>
+  <% }
+}); %>
+
+
+  </body>
+</html>
