@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-const Sequelize = require('sequelize');
-
-// Enable access to .env variables
-require('dotenv').config();
-
-// Use environment variables to connect to database
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 3306
-  }
-);
-
-module.exports = sequelize;
-
-
-=======
 
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
@@ -52,4 +30,3 @@ const sequelize = new Sequelize(
 // console.log(process.env.PORT)
 
 module.exports = sequelize;
->>>>>>> 94d00078959aeb56412fba15702e503ede884e3c
