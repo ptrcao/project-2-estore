@@ -2,10 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Product (Dynamic name)</title>
+    <title><%= data4.at(-1) %></title>
   </head>
   <body>
-    SINGLE PRODUCT GOES HERE
-    <script type="application/javascript" src="./cart.js"></script>
+
+    <% data4.forEach(function(element) { %>
+      <div class="product-img card" data-product_id=<%=element.id%>>
+        <h1><%= element.product_name %></h1>
+        <img src="<%= element.product_image %>" />
+        <% if (element.price != null) { %>
+          <p>Price: $<%= element.price %></p>
+        <% } %>
+        <% if (element.stock != null) { %>
+          <p>Stock: <%= element.stock %></p>
+        <% } %>
+
+        <p><%= element.description %></p>
+      </div>
+    <% }); %>
+
   </body>
 </html>

@@ -2,9 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Product Category(Dynamic name)</title>
+    <title><%= data3.at(-1); %></title>
   </head>
   <body>
-    Filtered product categories go here
+    <h1><%= data3.at(-1); %></h1>
+    <% data3.forEach(function(element) { %>
+      <a href="/product/<%=element.id%>"><div class="product-img card" data-product_id=<%=element.id%>>
+        <h2><%= element.product_name %></h2>
+        <img src="<%= element.product_image %>" />
+      </div></a>
+    <% }); %>
+
   </body>
 </html>
