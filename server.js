@@ -1,6 +1,7 @@
 const express = require('express');
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const session = require('express-session');
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const app = express();
 const routes = require('./controllers')
 // Import the connection object
 const sequelize = require('./config/connection');
@@ -15,12 +16,10 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 30, // 30 minutes
       sameSite: "strict",
-      secure: true,
+      secure: false,
     },
   })
 );
-
-const app = express();
 const PORT = 3001;
 
 app.use(express.json());
