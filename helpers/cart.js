@@ -37,11 +37,11 @@ Cart.prototype = {
                 }
                 return i
             })
-            this.total += item.price;
+            this.total += parseInt(item.price);
             this.numItems++;
         } else {
             this.items.push({...item, amount: amount});
-            this.total += item.price;
+            this.total += parseInt(item.price);
             this.numItems++;
         }
     },
