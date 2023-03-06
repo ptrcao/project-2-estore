@@ -1,5 +1,5 @@
-id,product_name,price,stock,product_category_id,image_url,description
-1,Emerald Floral Skirt,44.99,100,1,images/prod_images/placeholder-1.png,"Elevate your wardrobe with our stunning Tallie Midi Pleat Skirt, featuring a beautiful emerald color and blush floral chiffon detail."
+id,product_name,price,stock,product_category_id,product_image,description
+1,Emerald Floral Skirt,44.99,100,1,images/prod_images/placeholder-1.png,"Elevate your wardrobe with our stunning Emerald Floral Skirt, featuring a beautiful emerald color and blush floral chiffon detail."
 2,Casual Cotton Skirt,39.99,75,1,images/prod_images/placeholder-1.png,"Our Katies Cotton Blend Casual Skirts are perfect for any occasion, with a comfortable and stylish design that you'll love."
 3,Ruched Pocket Skirt,29.99,50,1,images/prod_images/placeholder-1.png,"Flaunt your curves in our EMERY ROSE Ruched Wideband Waist Hidden Pocket Skirt, featuring a flattering and functional design."
 4,Classic Beanie,24.99,25,2,images/prod_images/placeholder-1.png,"Stay cozy and stylish with our Classic Beanie, perfect for any cold weather outfit."
@@ -15,7 +15,7 @@ id,product_name,price,stock,product_category_id,image_url,description
 14,Silk Tie,39.99,10,5,images/prod_images/placeholder-1.png,"Add some class to your outfit with our Silk Tie, featuring a luxurious and elegant design."
 15,Metal Watch,59.99,2,5,images/prod_images/placeholder-1.png,"Make a statement with our Metal Watch, featuring a bold and modern design that will elevate any look."
 16,Canvas Tote Bag,14.99,60,6,images/prod_images/placeholder-1.png,"Carry your essentials in style with our Canvas Tote Bag, featuring a sturdy and practical design."
-17,Canvas Tote Bag,14.99,60,6,images/prod_images/placeholder-1.png,"Carry your essentials in style with our Canvas Tote Bag, featuring a sturdy and practical design."
+17,Floral Print Crossbody Bag,29.99,40,6,images/prod_images/placeholder-2.png,"Add a pop of color to your outfit with our Floral Print Crossbody Bag, featuring a vibrant floral pattern and a convenient crossbody strap for hands-free carrying."
 18,Slip-On Sneakers,44.99,25,11,images/prod_images/womens-slip-on-sneakers.png,"Stay comfortable and stylish with our Slip-On Sneakers for women, featuring a chic and trendy design that's perfect for any casual occasion."
 19,Espadrille Flats,39.99,30,11,images/prod_images/womens-espadrille-flats.png,"Step out in style with our Espadrille Flats for women, featuring a comfortable and versatile design that's perfect for dressing up or down."
 20,Mens Casual Sneakers,59.99,20,12,images/prod_images/mens-casual-sneakers.png,"Stay comfortable and stylish with our Men's Casual Sneakers, featuring a trendy and versatile design that's perfect for any casual occasion."
@@ -50,7 +50,7 @@ id,product_name,price,stock,product_category_id,image_url,description
 49,Women's Leather Purse,59.99,25,6,images/prod_images/placeholder-1.png,"Carry your essentials in style with our Women's Leather Purse, featuring a classic and practical design."
 50,Men's Leather Belt,34.99,30,5,images/prod_images/placeholder-1.png,"Complete your look with our Men's Leather Belt, featuring a stylish and durable design."
 51,Patterned Scarf,14.99,50,6,images/prod_images/placeholder-1.png,"Add some color and texture to your outfit with our Patterned Scarf, perfect for any occasion."
-52,Boys' Formal Suit,99.99,10,7,images/prod_images/boys-formal-suit.png,"Make your little man look sharp with our Boys' Formal Suit, featuring a classic and sophisticated design that's perfect for any formal occasion."
+52,Boys' Formal Suit,99.99,10,8,images/prod_images/boys-formal-suit.png,"Make your little man look sharp with our Boys' Formal Suit, featuring a classic and sophisticated design that's perfect for any formal occasion."
 53,Women's Sneakers,39.99,35,11,images/prod_images/placeholder-1.png,"Stay comfortable and stylish on the go with our Women's Sneakers, featuring a sleek and versatile design."
 54,Men's Polo Shirt,29.99,45,4,images/prod_images/placeholder-1.png,"Our Men's Polo Shirt is a classic wardrobe staple, featuring a comfortable and stylish design."
 55,Denim Jacket,49.99,10,4,images/prod_images/placeholder-1.png,"Elevate your look with our Denim Jacket, featuring a versatile and trendy design."
