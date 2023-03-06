@@ -5,39 +5,23 @@
     <title>Store Home</title>
   </head>
   <body>
-    <h1>EXAMPLE ONLY - HOME PAGE WITH CATEGORIES AND GENDER STORE DIVISIONS GO HERE</h1>
+    <h1>Store Home</h1>
     
  <!-- In your home.ejs view page: -->
- <h1>Men's Products</h1>
- <% categoriesByGender.forEach(category => {
-   if (category.product_category_sex_id === 2) { %>
-     <p><%= category.product_category_name %></p>
-     <img src="<%= category.product_category_image %>">
-   <% }
- }); %>
- <h1>Women's Products</h1>
- <% categoriesByGender.forEach(category => {
-   if (category.product_category_sex_id === 1) { %>
-     <p><%= category.product_category_name %></p>
-     <img src="<%= category.product_category_image %>">
-   <% }
- }); %>
- <h1>Kids' Products</h1>
- <% categoriesByGender.forEach(category => {
-   if (category.product_category_sex_id === 3) { %>
-     <p><%= category.product_category_name %></p>
-     <img src="<%= category.product_category_image %>">
-   <% }
- }); %>
- <h1>Unisex Products</h1>
- <% categoriesByGender.forEach(category => {
-   if (category.product_category_sex_id === 4) { %>
-     <p><%= category.product_category_name %></p>
-     <img src="<%= category.product_category_image %>">
-   <% }
- }); %>
+<!-- Gender Departments (M, W, kids, Unisex)
+Product Category (T-shirt, Shorts)
+Products () -->
 
 
+<!-- add event listener to grab and return e.target.attribute("data-id") -->
 
+  <% data.forEach(function(element) { %>
+      <a href="/product-categories/<%=element.id%>"><div class="gender-department-banner card" data-gender_id=<%=element.id%>>
+        <h3><%= element.product_category_gender_name %></h3>
+        <img src="<%= element.product_category_gender_image %>" />
+      </div></a>
+    <% }); %>
+
+      <script type="application/javascript" src="js/home.js"></script>
   </body>
 </html>

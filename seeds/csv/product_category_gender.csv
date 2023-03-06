@@ -1,5 +1,5 @@
 id,product_category_gender_name,product_category_gender_image
-1,Women,images/prod_cat_gender_images/women.jpg
-2,Men,images/prod_cat_gender_images/men.jpg
+1,Womens,images/prod_cat_gender_images/women.jpg
+2,Mens,images/prod_cat_gender_images/men.jpg
 3,Kids,images/prod_cat_gender_images/kids.jpg
-4,Unisex,images/prod_cat_gender_images/unisex.jpg
+4,Unisex,images/prod_cat_gender_images/unisex.png
