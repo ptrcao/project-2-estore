@@ -2,20 +2,24 @@ const router = require('express').Router();
 const Cart = require('../../helpers/cart');
 const {Product} = require('../../models');
 
-router.get("/", (req, res) => {
+// Check if customer has a cart in session and create one if not
+const withCart = (req, res, next) => {
     if (!req.session.cart) {
         req.session.cart = new Cart();
     }
-    const cart = new Cart(req.session.cart)
-    res.json(cart);
+    next();
+}
+// Get cart
+router.get("/", withCart, (req, res) => { 
+    res.json(req.session.cart);
   });
 
-
-router.post("/add", (req, res) => {
+// Add item to cart and update session
+router.post("/add", withCart, (req, res) => {
     const cart = req.session.cart ? new Cart(req.session.cart) : new Cart();
     Product.findByPk(req.body?.id)
     .then(product => {
-        cart.addItem(product, 1);
+        cart.addItem(product.get({plain: true}), 1);
         req.session.cart = cart;
         res.json(cart);
     })
@@ -24,8 +28,8 @@ router.post("/add", (req, res) => {
     })
 });
 
-
-router.delete("/remove", (req, res) => {
+// Remove item from cart and update session
+router.delete("/remove", withCart, (req, res) => {
     const cart = req.session.cart ? new Cart(req.session.cart) : new Cart();
     cart.removeItem(req.body.id);
     req.session.cart = cart;
