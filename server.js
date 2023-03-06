@@ -1,10 +1,13 @@
 const express = require('express');
+const router = require('express').Router();
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const session = require('express-session');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const routes = require('./controllers')
-// Import the connection object
 const sequelize = require('./config/connection');
+
+
 app.use(
   session({
     secret: process.env.COOKIE_SECRET || "secret",
@@ -24,7 +27,21 @@ const PORT = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+router.set('view engine', 'ejs');
+
+const { getProductCategoryGenderData } = require('./controllers/productCategoryGenderController');
+
+router.get('/', async (req, res) => {
+  try {
+    const categoriesByGender = await getProductCategoryGenderData();
+    res.render('home', { categoriesByGender });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 app.use(routes);
+
 
 const checkoutRoutes = require('./routes/api/checkoutRoutes');
 
