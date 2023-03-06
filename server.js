@@ -1,5 +1,5 @@
 const express = require('express');
-
+const router = require('express').Router();
 // Import the connection object
 const sequelize = require('./config/connection');
 
@@ -9,6 +9,20 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Set the view engine to EJS
+router.set('view engine', 'ejs');
+
+const { getProductCategoryGenderData } = require('./controllers/productCategoryGenderController');
+
+router.get('/', async (req, res) => {
+  try {
+    const categoriesByGender = await getProductCategoryGenderData();
+    res.render('home', { categoriesByGender });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 const checkoutRoutes = require('./routes/api/checkoutRoutes');
 
