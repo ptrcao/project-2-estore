@@ -1,6 +1,6 @@
 
 
-
+// Initialize the cart object can parse a previous cart object to initialize the new cart object
 function Cart(prevCart = null) {
     this.items =  prevCart?.items || [];
     this.total = prevCart?.total || 0;
@@ -8,8 +8,9 @@ function Cart(prevCart = null) {
   
 
 }
-
+// Add methods to the cart object prototype to add and remove items
 Cart.prototype = {
+    // Remove item from cart maps through the items array and returns a new array with the item removed
     removeItem: function (id) {
         const foundItem = this.items.find(i => i.id === id);
         if (foundItem) {
@@ -28,6 +29,7 @@ Cart.prototype = {
             }
         }
     },
+    // Add item to cart checks if the item is already in the cart and if so updates the amount, otherwise it adds the item to the cart
     addItem: function (item, amount) {
         const foundItems = this.items.find(i => i.id === item.id);
         if (foundItems) {
@@ -45,6 +47,7 @@ Cart.prototype = {
             this.numItems++;
         }
     },
+    // Get cart returns the cart object
     getCart: function () {
         return {items: this.items, total: `$${this.total}`, numItems: this.numItems}
     }
