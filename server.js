@@ -6,10 +6,10 @@ const path = require('path');
 const express = require('express');
 const router = require('express').Router();
 // Import the connection object
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const session = require('express-session');
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
-const routes = require('./controllers')
+// const routes = require('./controllers')
 const sequelize = require('./config/connection');
 
 
@@ -37,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 // Set the view engine to EJS
 
 app.set('view engine', 'ejs');
-router.set('view engine', 'ejs');
+
 // Check that both app.set and router.set are needed
 
 // const { getProductCategoryGenderData } = require('./controllers/productCategoryGenderController');

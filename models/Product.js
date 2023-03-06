@@ -34,7 +34,7 @@ Product.init(
         isNumeric: true,
       },
     },
-    image_url: {
+    product_image: {
       type: DataTypes.STRING(250),
       allowNull: false,
     },
