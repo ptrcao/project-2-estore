@@ -2,19 +2,19 @@ const router = require('express').Router();
 const Cart = require('../../helpers/cart');
 const {Product} = require('../../models');
 
-
+// Check if customer has a cart in session and create one if not
 const withCart = (req, res, next) => {
     if (!req.session.cart) {
         req.session.cart = new Cart();
     }
     next();
 }
-
+// Get cart
 router.get("/", withCart, (req, res) => { 
     res.json(req.session.cart);
   });
 
-
+// Add item to cart and update session
 router.post("/add", withCart, (req, res) => {
     const cart = req.session.cart ? new Cart(req.session.cart) : new Cart();
     Product.findByPk(req.body?.id)
@@ -28,7 +28,7 @@ router.post("/add", withCart, (req, res) => {
     })
 });
 
-
+// Remove item from cart and update session
 router.delete("/remove", withCart, (req, res) => {
     const cart = req.session.cart ? new Cart(req.session.cart) : new Cart();
     cart.removeItem(req.body.id);
