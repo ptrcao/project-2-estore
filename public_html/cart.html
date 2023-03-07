@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="/js/getCart.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
   </head>
 
@@ -41,11 +42,21 @@
       </div>
       <br />
 
+        <hr />
+        <div id="cart-items">
+
+     
+        <div class="item">
+          <a class="view-cart" href="#">Product 1</a>
+          <div class="price">$15</div>
+        </div>
+
       <hr />
       <div class="item">
         <a class="view-cart" href="#">Product 1</a>
         <div class="price">$15</div>
       </div>
+
 
       <div class="item">
         <a class="view-cart" href="#">Product 2</a>
@@ -57,19 +68,30 @@
         <div class="price">$8</div>
       </div>
 
+        <div class="item">
+          <a class="view-cart" href="#">Product 4</a>
+          <div class="price">$2</div>
+        </div>
+      </div>
+        <hr />
+        <div class="cart">
+          <h3>Total</h3>
+          <div class="price" style="color: black"><b id="total-cost">$30</b></div>
+        </div>
       <div class="item">
         <a class="view-cart" href="#">Product 4</a>
         <div class="price">$2</div>
+        </div>
       </div>
-
       <hr />
 
       <div class="cart">
         <h3>
           Total
-          <div class="price" style="color: black"><b>$30</b></div>
+          <div class="price" style="color: black"><b id="total-cost">$30</b></div>
         </h3>
       </div>
+
 
       <div class="summary">
         <h3 class="summary-item">Summary</h3>
