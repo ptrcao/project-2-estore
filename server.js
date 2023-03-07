@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Set the view engine to EJS
-
+app.use('/api/cart', require('./routes/api/cartRoutes'));
 app.set('view engine', 'ejs');
 
 // Check that both app.set and router.set are needed
