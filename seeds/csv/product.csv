@@ -1,4 +1,4 @@
-id,product_name,price,stock,product_category_id,image_url,description
+id,product_name,price,stock,product_category_id,product_image,description
 1,Emerald Floral Skirt,44.99,100,1,/images/prod_images/emerald-floral-skirt.png,"Elevate your wardrobe with our stunning Tallie Midi Pleat Skirt, featuring a beautiful emerald color and blush floral chiffon detail."
 2,Casual Cotton Skirt,39.99,75,1,/images/prod_images/casual-cotton-skirt.png,"Our Katies Cotton Blend Casual Skirts are perfect for any occasion, with a comfortable and stylish design that you'll love."
 3,Ruched Pocket Skirt,29.99,50,1,/images/prod_images/ruched-pocket-skirt.png,"Flaunt your curves in our EMERY ROSE Ruched Wideband Waist Hidden Pocket Skirt, featuring a flattering and functional design."
