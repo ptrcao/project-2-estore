@@ -83,6 +83,7 @@ app.use(express.static('public_html'));
 
 // needed to serve font awesome
 const serveStatic = require('serve-static');
+// const { INSERT } = require('sequelize/types/query-types');
 app.use('/static', serveStatic(__dirname + '/node_modules'));
 
 async function getArrayForDeptAndCatMegaMenu(){
@@ -280,6 +281,21 @@ app.get('/checkout', (req, res) => {
   res.sendFile(__dirname + '/public_html/checkout.html');
 });
 
+// CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, PRODUCT DETAILS
+app.post('/api/checkout', (req, res) => {
+  const body = req.body;
+console.log(body)
+  // INSERT
+  // RETURN 
+  res.redirect('/confirmation/:order-id');
+})
+
+
+
+app.get('/confirmation', (req, res) => {
+  // res.sendFile(__dirname + '/public_html/checkout.html');
+  
+});
 
 
 // Connect to the database before starting the Express.js server
