@@ -64,35 +64,92 @@ body {
   font-weight: bold;
 }
 
+.container {
+  margin: 1% 5% 1% 5%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-auto-rows: minmax(200px, auto);
+  grid-auto-columns: minmax(200px, auto);
+  gap: 1em;
+}
+
+.box {
+  position: relative;
+  height: 100%;
+  background-color: white;
+  color: white;
+  font-size: 2rem;
+
+  padding: 1rem;
+  aspect-ratio: 1;
+}
+
+.box img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.box a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f2f2f2;
+  opacity: 0.5;
+}
+
+.box:first-child {
+  grid-row: 1 / 3;
+}
+
 /* home page styling */
-/* .wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      flex-basis: 100%;
-      width: 90%;
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-    .left-column {
-      flex: 1;
-    
-      background-color: red;
-      /* height: 100px; */
-/* }
-    .right-column {
-      display: grid;
-      flex: 1;
-    }
-    .right-image {
-      flex: 1;
-      flex-basis: 40%;
-      box-sizing: border-box;
-      border: 25px solid orange;
-      background-color: rebeccapurple;
-      height: 250px;
-      width: 250px;
-    } */
+.wrapper {
+  display: flex;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+}
+/* style left womens image */
+.left-column {
+  position: relative;
+  width: 50%;
+  background-color: red;
+}
+
+.left-column img {
+  width: 100%;
+  /* padding: 25px; */
+  /* height: 500px; */
+  /* width: 500px; */
+}
+
+.left-column a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+/* style right 4 images */
+.right-column {
+  background-color: beige;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.right-image {
+  flex: 1;
+  box-sizing: border-box;
+  border: 25px solid orange;
+  background-color: rebeccapurple;
+  width: 50%;
+}
+.right-image img {
+  padding: 25px;
+  height: 250px;
+  width: 250px;
+}
 
 .flexbox-container {
   margin: 1% 1% 1% 1%;
@@ -158,6 +215,7 @@ footer {
   height: 75px;
   justify-content: space-around;
   align-items: center;
+  margin-top: 10px;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -300,14 +358,14 @@ footer {
     width: %;
   } */
 /* 
-  .right {
-    right: 0;
-    width: 30%;
-    height: 75%;
-    margin: 0px;
-  padding:10px 10px 10px 10px; 
-    background-color: peru;
-  } */
+.right {
+  right: 0;
+  width: 30%;
+  height: 75%;
+  margin: 0px;
+  padding: 10px 10px 10px 10px;
+  background-color: peru;
+} */
 
 /* cart page */
 
@@ -318,7 +376,7 @@ footer {
   float: right;
 }
 
-.container {
+.cart-container {
   color: #023047;
   margin: auto;
   background-color: #f2f2f2;
@@ -341,5 +399,6 @@ footer {
   margin: 50px;
 }
 .summary-item {
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
