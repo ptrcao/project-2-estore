@@ -1,1 +1,10 @@
-a{}
+nav > ul > li {
+    display: inline-block;
+}
+
+.card img{
+    width: 200px;
+}
+.card{
+    display: inline-block;
+}
