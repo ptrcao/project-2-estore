@@ -38,7 +38,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Set the view engine to EJS
-
+app.use('/api/cart', require('./routes/api/cartRoutes'));
 app.set('view engine', 'ejs');
 
 // Check that both app.set and router.set are needed
@@ -292,15 +292,12 @@ app.post('/api/checkout', (req, res) => {
   const body = req.body;
 console.log(body)
   insertOrder(body)
-  // res.redirect('/thank-you/:order-id');
+  res.redirect('api/thank-you/:order-id');
 })
 
 
-
-app.get('/thank-you/:order-id', (req, res) => {
-  // res.sendFile(__dirname + '/public_html/checkout.html');
-  res.render()
-});
+const thankYouRoute = require('./routes/thankYouRoute')
+app.use('/api/thank-you', thankYouRoute)
 
 
 // Connect to the database before starting the Express.js server

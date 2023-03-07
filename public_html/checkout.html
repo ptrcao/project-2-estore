@@ -2,36 +2,62 @@
 <html>
   <head>
     <title>Checkout</title>
+    <meta charset="UTF-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
   </head>
+
+  <header class="main-header">
+    <img src="./images/logo/impress-apparel.png" alt="logo" />
+    <div class="nav-container">
+      <div class="nav"><a href="#mens">Men</a></div>
+      <div class="nav"><a href="#women">Women</a></div>
+      <div class="nav"><a href="#kids">Kids</a></div>
+      <div class="nav"><a href="#accessories">Accessories</a></div>
+      <div class="nav"><a href="#login">Login</a></div>
+      <a href="#cart" class="nav fa fa-cart-shopping"></a>
+    </div>
+  </header>
   <body>
-    <a href="/cart">&lt;&lt; BACK TO CART</a>
-    <h1>Checkout your order</h1>
-    <form id="checkout-form">
-      <!-- Customer Information -->
-      <div>
-        <h2>Customer Information</h2>
+    <section class="checkout-page">
+      <h1>Review Order</h1>
+      <form class="checkout" id="checkout-form">
+        <!-- Customer Information -->
         <div>
-          <label for="customer-first-name">First Name</label>
-          <input
-            type="text"
-            id="customer-first-name"
-            name="customerFirstName"
-            required
-          />
-        </div>
-        <div>
-          <label for="customer-last-name">Last Name</label>
-          <input
-            type="text"
-            id="customer-last-name"
-            name="customerLastName"
-            required
-          />
-        </div>
-        <!-- <div>
+          <h2>Customer Information</h2>
+          <div>
+            <label for="customer-first-name">First Name</label>
+            <input
+              class="user"
+              type="text"
+              id="customer-first-name"
+              name="customerFirstName"
+              required
+            />
+          </div>
+          <div>
+            <label for="customer-last-name">Last Name</label>
+            <input
+              class="user"
+              type="text"
+              id="customer-last-name"
+              name="customerLastName"
+              required
+            />
+          </div>
+
+          <!-- <div>
         <label for="customer-company-name">Company Name (optional)</label>
         <input type="text" id="customer-company-name" name="customer-company-name">
       </div> -->
+<<<<<<< HEAD
         <div>
           <label for="customer-email">Email</label>
           <input
@@ -40,155 +66,197 @@
             name="customerEmail"
             required
           />
+=======
+          <div>
+            <label for="customer-email"><div>Email</div></label>
+            <input
+              class="user"
+              type="email"
+              id="customer-email"
+              name=" customerEmail"
+              required
+            />
+          </div>
+          <div>
+            <label for="customer-phone-number">Phone Number</label>
+            <input
+              class="user"
+              type="tel"
+              id="customer-phone-number"
+              name="customerPhoneNumber"
+              required
+            />
+          </div>
+>>>>>>> c8a9ccf177cf6dcd3850a6f59276d0ef9550dc47
         </div>
-        <div>
-          <label for="customer-phone-number">Phone Number</label>
-          <input
-            type="tel"
-            id="customer-phone-number"
-            name="customerPhoneNumber"
-            required
-          />
-        </div>
-      </div>
 
-      <!-- Billing Address -->
-      <div>
-        <h2>Billing Address</h2>
+        <!-- Billing Address -->
         <div>
-          <label for="billing-company-name">Company Name (optional)</label>
-          <input
-            type="text"
-            id="billing-company-name"
-            name="billingCompanyName"
-          />
+          <h2>Billing Address</h2>
+          <div>
+            <label for="billing-company-name">Company Name (optional)</label>
+            <input
+              class="user"
+              type="text"
+              id="billing-company-name"
+              name="billingCompanyName"
+            />
+          </div>
+          <div>
+            <label for="billing-address-line-1">Address Line 1</label>
+            <input
+              class="user"
+              type="text"
+              id="billing-address-line-1"
+              name="billingAddressLine1"
+              required
+            />
+          </div>
+          <div>
+            <label for="billing-address-line-2"
+              >Address Line 2 (optional)</label
+            >
+            <input
+              class="user"
+              type="text"
+              id="billing-address-line-2"
+              name="billingAddressLine2"
+            />
+          </div>
+          <div class="postcode">
+            <div class="postcode-item">
+              <label for="billing-state">State/Province</label>
+              <input
+                class="user"
+                type="text"
+                id="billing-state"
+                name="billingState"
+                required
+              />
+            </div>
+            <div class="postcode-item">
+              <label for="billing-postcode">Postal Code</label>
+              <input
+                class="user"
+                type="text"
+                id="billing-postcode"
+                name="billingPostalCode"
+                required
+              />
+            </div>
+            <div class="postcode-item">
+              <label for="billing-country"><div>Country</div></label>
+              <input
+                class="user"
+                type="text"
+                id="billing-country"
+                name="billingCountry"
+                required
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="billing-address-line-1">Address Line 1</label>
-          <input
-            type="text"
-            id="billing-address-line-1"
-            name="billingAddressLine1"
-            required
-          />
-        </div>
-        <div>
-          <label for="billing-address-line-2">Address Line 2 (optional)</label>
-          <input
-            type="text"
-            id="billing-address-line-2"
-            name="billingAddressLine2"
-          />
-        </div>
-        <div>
-          <label for="billing-state">State/Province</label>
-          <input type="text" id="billing-state" name="billingState" required />
-        </div>
-        <div>
-          <label for="billing-postcode">Postal Code</label>
-          <input
-            type="text"
-            id="billing-postcode"
-            name="billingPostalCode"
-            required
-          />
-        </div>
-        <div>
-          <label for="billing-country">Country</label>
-          <input
-            type="text"
-            id="billing-country"
-            name="billingCountry"
-            required
-          />
-        </div>
-      </div>
 
-      <!-- Shipping Address -->
-      <div>
-        <h2>Shipping Address</h2>
+        <!-- Shipping Address -->
         <div>
-          <label for="shipping-receiver-first-name">Receiver First Name</label>
-          <input
-            type="text"
-            id="shipping-receiver-first-name"
-            name="shippingFirstName"
-            required
-          />
+          <h2>Shipping Address</h2>
+          <div>
+            <label for="shipping-receiver-first-name"
+              >Receiver First Name</label
+            >
+            <input
+              class="user"
+              type="text"
+              id="shipping-receiver-first-name"
+              name="shippingFirstName"
+              required
+            />
+          </div>
+          <div>
+            <label for="shipping-receiver-last-name">Receiver Last Name</label>
+            <input
+              class="user"
+              type="text"
+              id="shipping-receiver-last-name"
+              name="shippingLastName"
+              required
+            />
+          </div>
+          <div>
+            <label for="shipping-receiver-phone-number"
+              >Receiver Phone Number</label
+            >
+            <input
+              class="user"
+              type="tel"
+              id="shipping-receiver-phone-number"
+              name="shippingPhoneNumber"
+              required
+            />
+          </div>
+          <div>
+            <label for="shipping-company-name">Company Name (optional)</label>
+            <input
+              class="user"
+              type="text"
+              id="shipping-company-name"
+              name="shippingCompanyName"
+            />
+          </div>
+          <div>
+            <label for="shipping-address-line-1">Address Line 1</label>
+            <input
+              class="user"
+              type="text"
+              id="shipping-address-line-1"
+              name="shippingAddressLine1"
+              required
+            />
+          </div>
+          <div>
+            <label for="shipping-address-line-2"
+              >Address Line 2 (optional)</label
+            >
+            <input
+              class="user"
+              type="text"
+              id="shipping-address-line-2"
+              name="shippingAddressLine2"
+            />
+          </div>
+          <div class="postcode">
+            <div class="postcode-item">
+              <label for="shipping-state">State/Province</label>
+              <input
+                class="user"
+                type="text"
+                id="shipping-state"
+                name="shippingState"
+                required
+              />
+            </div>
+            <div class="postcode-item">
+              <label for="shipping-postcode">Postal Code</label>
+              <input
+                class="user"
+                type="text"
+                id="shipping-postcode"
+                name="shippingPostalCode"
+                required
+              />
+            </div>
+            <div class="postcode-item">
+              <label for="shipping-country"><div>Country</div></label>
+              <input
+                class="user"
+                type="text"
+                id="shipping-country"
+                name="shippingCountry"
+                required
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="shipping-receiver-last-name">Receiver Last Name</label>
-          <input
-            type="text"
-            id="shipping-receiver-last-name"
-            name="shippingLastName"
-            required
-          />
-        </div>
-        <div>
-          <label for="shipping-receiver-phone-number"
-            >Receiver Phone Number</label
-          >
-          <input
-            type="tel"
-            id="shipping-receiver-phone-number"
-            name="shippingPhoneNumber"
-            required
-          />
-        </div>
-        <div>
-          <label for="shipping-company-name">Company Name (optional)</label>
-          <input
-            type="text"
-            id="shipping-company-name"
-            name="shippingCompanyName"
-          />
-        </div>
-        <div>
-          <label for="shipping-address-line-1">Address Line 1</label>
-          <input
-            type="text"
-            id="shipping-address-line-1"
-            name="shippingAddressLine1"
-            required
-          />
-        </div>
-        <div>
-          <label for="shipping-address-line-2">Address Line 2 (optional)</label>
-          <input
-            type="text"
-            id="shipping-address-line-2"
-            name="shippingAddressLine2"
-          />
-        </div>
-        <div>
-          <label for="shipping-state">State/Province</label>
-          <input
-            type="text"
-            id="shipping-state"
-            name="shippingState"
-            required
-          />
-        </div>
-        <div>
-          <label for="shipping-postcode">Postal Code</label>
-          <input
-            type="text"
-            id="shipping-postcode"
-            name="shippingPostalCode"
-            required
-          />
-        </div>
-        <div>
-          <label for="shipping-country">Country</label>
-          <input
-            type="text"
-            id="shipping-country"
-            name="shippingCountry"
-            required
-          />
-        </div>
-      </div>
 
       <!-- Payment Information -->
       <!-- No need for functionality of payment, it's just for show -->
@@ -202,16 +270,20 @@
           <label for="card-expiry">Card Expiry (MM/YY)</label>
           <input type="text" id="card-expiry" name="cardExpiry" disabled />
         </div>
+
+        <!-- Submit Button -->
         <div>
           <label for="card-cvv">CVV</label>
           <input type="text" id="card-cvv" name="cardCvv" disabled />
+          <input type="submit" class="order-btn" value="Place Order" />
+          <button class="btn" href="/cart">Back To Cart</button>
         </div>
-      </div>
-      <!-- Submit Button -->
-      <div>
-        <input type="submit" value="Place Order" />
-      </div>
-    </form>
+      </form>
+    </section>
+    <footer>
+      <h3>Contact Us</h3>
+      <h3>Returns</h3>
+    </footer>
     <script type="application/javascript" src="./checkout.js"></script>
   </body>
 </html>
