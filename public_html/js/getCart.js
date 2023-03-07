@@ -12,13 +12,14 @@ fetch('api/cart')
 .then(data => {
     const cartItems = document.getElementById('cart-items');
     const totalCost = document.getElementById('total-cost');
+    console.log(data);
     totalCost.innerText = `$${data.total}`;
     cartItems.innerHTML = "";
     console.log(data);
 
     data.items.forEach((item) => {
         const selectArray = new Array(item.amount + 10).fill(0).map((item, index)=>{
-            return index + 1;
+            return index;
         });
         console.log(selectArray)
         cartItems.innerHTML += `
