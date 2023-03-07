@@ -81,10 +81,29 @@ app.use(express.static('public_html'));
 // const checkoutRoutes = require('./routes/api/checkoutRoutes');
 
 
+// needed to serve font awesome
+const serveStatic = require('serve-static');
+app.use('/static', serveStatic(__dirname + '/node_modules'));
+
+async function getArrayForDeptAndCatMegaMenu(){
+
+const productCategories = await ProductCategoryGender.findAll({
+  include: [
+    {
+      model: ProductCategory,
+      as: 'product_categories',
+    },
+  ],
+});
+
+return productCategories;
+}
 
 app.get('/', async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
+  // for navbar
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu()
 
 
   const getGenderDepartments = async () =>{
@@ -102,18 +121,25 @@ app.get('/', async (req, res) => {
 
   const data = await getGenderDepartments();
   // res.json( data )
-  res.render('home', { data })
+  res.render('home', { data, megaMenuArray })
 });
+
+
 
 
 
 app.get('/product-categories/:id', async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
+  // for navbar
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu()
+
   const genderDepartmentId = req.params.id; // get the body of the req object
 
 
   const getProductCategories = async () =>{
+
+
 
       const productCategoriesData = await ProductCategory.findAll({
         where: {
@@ -137,11 +163,6 @@ app.get('/product-categories/:id', async (req, res) => {
 
 
 
-
-
-
-
-
   const data2 = await getProductCategories();
   console.log('hello ' + JSON.stringify(data2))
 
@@ -156,7 +177,10 @@ app.get('/product-categories/:id', async (req, res) => {
   // res.json( body.id )
   // console.log( req.body )
   // res.json( data2 )
-  res.render(`product-categories`, { data2 })
+
+
+
+  res.render(`product-categories`, { data2, megaMenuArray })
   
   // res.redirect(`/product-category/${req.body}`);
 });

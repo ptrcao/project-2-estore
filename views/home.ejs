@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <title>Store Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+
   </head>
   <body>
+
+    <!-- Navbar with Mega Menu -->
+    <%- include('./navbar.ejs') %>
     <h1>Store Home</h1>
     
  <!-- In your home.ejs view page: -->
@@ -16,10 +22,14 @@ Products () -->
 <!-- add event listener to grab and return e.target.attribute("data-id") -->
 
   <% data.forEach(function(element) { %>
-      <a href="/product-categories/<%=element.id%>"><div class="gender-department-banner card" data-gender_id=<%=element.id%>>
-        <h3><%= element.product_category_gender_name %></h3>
+    <a href="/product-categories/<%=element.id%>">
+      <div class="gender-department-banner card" data-gender_id=<%=element.id%>>
+        
+        <h2><%= element.product_category_gender_name %></h2>
         <img src="<%= element.product_category_gender_image %>" />
-      </div></a>
+
+      </div>
+    </a>
     <% }); %>
 
       <script type="application/javascript" src="js/home.js"></script>
