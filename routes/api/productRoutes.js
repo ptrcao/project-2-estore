@@ -1,3 +1,4 @@
+const router = require('express').Router();
 
 // Define a route for product pages
 app.get('/product/:id', function(req, res) {
@@ -16,3 +17,4 @@ app.get('/product/:id', function(req, res) {
     });
   });
   
+  module.exports = router;

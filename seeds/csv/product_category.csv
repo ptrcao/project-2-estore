@@ -1,15 +1,15 @@
 id,product_category_name,product_category_gender_id,product_category_image
-1,Skirts,1,images/prod_cat_images/skirts.png
-2,Beanies,4,images/prod_cat_images/beanies.png
-3,Hosiery,1,images/prod_cat_images/hosiery.png
-4,Suits,2,images/prod_cat_images/suits.png
-5,Mens Accessories,2,images/prod_cat_images/mens_accessories.png
-6,Womens Accessories,1,images/prod_cat_images/womens_accessories.png
-7,Kids Casual,3,images/prod_cat_images/kids_casual.png
-8,Kids Formal,3,images/prod_cat_images/kids_formal.png
-9,Summer Dresses,1,images/prod_cat_images/summer_dresses.png
-10,Jeans,4,images/prod_cat_images/jeans.png
-11,Womens Shoes,1,images/prod_cat_images/womens_shoes.png
-12,Mens Shoes,2,images/prod_cat_images/mens_shoes.png
-13,Womens Tops,1,images/prod_cat_images/womens_tops.png
-14,Mens Tops,2,images/prod_cat_images/mens_tops.png
+1,Skirts,1,/images/prod_cat_images/placeholder-1.png
+2,Beanies,4,/images/prod_cat_images/placeholder-1.png
+3,Hosiery,1,/images/prod_cat_images/placeholder-1.png
+4,Suits,2,/images/prod_cat_images/placeholder-1.png
+5,Mens Accessories,2,/images/prod_cat_images/placeholder-1.png
+6,Womens Accessories,1,/images/prod_cat_images/placeholder-1.png
+7,Kids Casual,3,/images/prod_cat_images/placeholder-1.png
+8,Kids Formal,3,/images/prod_cat_images/placeholder-1.png
+9,Summer Dresses,1,/images/prod_cat_images/placeholder-1.png
+10,Jeans,4,/images/prod_cat_images/placeholder-1.png
+11,Womens Shoes,1,/images/prod_cat_images/placeholder-1.png
+12,Mens Shoes,2,/images/prod_cat_images/placeholder-1.png
+13,Womens Tops,1,/images/prod_cat_images/placeholder-1.png
+14,Mens Tops,2,/images/prod_cat_images/placeholder-1.png

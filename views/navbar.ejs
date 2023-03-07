@@ -1,0 +1,25 @@
+<nav>
+    <a href="/" class="nav__logo">
+        <!-- Add your logo HTML here -->
+        <img src="/images/logo/impress-apparel.png">
+    </a>
+  <ul>
+    <% megaMenuArray.forEach(function(productCategoryGender) { %>
+      <li class="nav__item nav__dropdown">
+        <a href="/product-categories/<%=productCategoryGender.id%>" class="nav__link"><%= productCategoryGender.product_category_gender_name %></a>
+        <div class="nav__megamenu">
+          <div class="nav__column">
+            <ul>
+              <% productCategoryGender.product_categories.forEach(function(productCategory) { %>
+                <li><a href="/product-category/<%=productCategory.id%>"><%= productCategory.product_category_name %></a></li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </li>
+    <% }); %>
+    <li class="nav__item nav__cart">
+        <a href="#" class="nav__link"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
+    </li>
+  </ul>
+</nav>

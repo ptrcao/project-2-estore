@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= data2.at(-1); %> Product Categories</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <!-- Navbar with Mega Menu -->
+    <%- include('./navbar.ejs') %>
+
+    <h1><%= data2.at(-1); %> Product Categories</h1>
+    <% data2.forEach(function(element) { %>
+      <a href="/product-category/<%=element.id%>"><div class="product-category-banner card" data-product_category_id=<%=element.id%>>
+        <h2><%= element.product_category_name %></h2>
+        <img src="<%= element.product_category_image %>" />
+      </div></a>
+    <% }); %>
+
+  </body>
+</html>
