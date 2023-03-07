@@ -17,6 +17,7 @@
         <h1><%= element.product_name %></h1>
         <img src="<%= element.product_image %>" />
         <% if (element.price != null) { %>
+          <button class="add-to-cart-btn" type="button">Add to Cart</button>
           <p>Price: $<%= element.price %></p>
         <% } %>
         <% if (element.stock != null) { %>
