@@ -2,6 +2,7 @@
     <a href="/" class="nav__logo">
         <!-- Add your logo HTML here -->
         <img src="/images/logo/impress-apparel.png">
+        <script src="/js/navCart.js"></script>
     </a>
   <ul>
     <% megaMenuArray.forEach(function(productCategoryGender) { %>
@@ -18,8 +19,12 @@
         </div>
       </li>
     <% }); %>
-    <li class="nav__item nav__cart">
+    <div>
+      <li class="nav__item nav__cart">
         <a href="#" class="nav__link"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
+        <p id="cart-quantity"></p>
     </li>
+    </div>
+
   </ul>
 </nav>

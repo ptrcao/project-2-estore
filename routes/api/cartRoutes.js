@@ -15,8 +15,9 @@ router.get("/", withCart, (req, res) => {
   });
 
 // Add item to cart and update session
-router.post("/add", withCart, (req, res) => {
+router.post("/", withCart, (req, res) => {
     const cart = req.session.cart ? new Cart(req.session.cart) : new Cart();
+    console.log(req.body)
     Product.findByPk(req.body?.id)
     .then(product => {
         cart.addItem(product.get({plain: true}), 1);
@@ -29,7 +30,7 @@ router.post("/add", withCart, (req, res) => {
 });
 
 // Remove item from cart and update session
-router.delete("/remove", withCart, (req, res) => {
+router.delete("/", withCart, (req, res) => {
     const cart = req.session.cart ? new Cart(req.session.cart) : new Cart();
     cart.removeItem(req.body.id);
     req.session.cart = cart;
