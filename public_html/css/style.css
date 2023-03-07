@@ -64,6 +64,19 @@ body {
   font-weight: bold;
 }
 
+.hamburger {
+  display: none;
+}
+/* narrow style ------- */
+@media screen and (max-width: 1600px) {
+  .nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
 .container {
   margin: 1% 5% 1% 5%;
   display: grid;
