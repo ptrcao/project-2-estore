@@ -203,20 +203,19 @@ footer {
 .user {
   margin: 10px 0px 10px 0px;
   text-align: center;
-  border: none;
+  border: solid;
   padding: 10px 0px 10px 0px;
-  width: 95%;
+  width: 100%;
 }
 
 .login-btn {
   background-color: #023047;
-  border: none;
+  border: solid;
   color: #f8f9fa;
   margin: 10px 0px 10px 0px;
   padding: 10px 30px 10px 30px;
   width: 100%;
   text-align: center;
-  text-decoration: none;
   font-size: 16px;
 }
 
@@ -230,7 +229,6 @@ footer {
 
 /* checkout page */
 .checkout-page {
-  /* border-radius: 10px; */
   margin: auto;
   width: 70%;
   height: 80%;
@@ -242,9 +240,9 @@ footer {
 }
 
 .checkout {
+  color: black;
   justify-content: space-around;
   padding: 50px;
-  background-color: pink;
 }
 .checkout h2 {
   margin: 25px 25px 25px 0px;
@@ -256,8 +254,20 @@ footer {
 .postcode {
   display: flex;
 }
+
+.postcode-item {
+  margin-right: 30px;
+}
 .payment {
   padding: 2px;
+}
+
+.order-btn {
+  color: white;
+  right: 0;
+  padding: 10px 50px 10px 50px;
+  background-color: #023047;
+  border-radius: 5px;
 }
 
 /* .address-row {

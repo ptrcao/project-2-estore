@@ -28,7 +28,7 @@
   <body>
     <section class="checkout-page">
       <a href="/cart">&lt;&lt; BACK TO CART</a>
-      <h1>Checkout your order</h1>
+      <h1>Review Order</h1>
       <form class="checkout" id="checkout-form">
         <!-- Customer Information -->
         <div>
@@ -114,7 +114,7 @@
             />
           </div>
           <div class="postcode">
-            <div>
+            <div class="postcode-item">
               <label for="billing-state">State/Province</label>
               <input
                 class="user"
@@ -124,7 +124,7 @@
                 required
               />
             </div>
-            <div>
+            <div class="postcode-item">
               <label for="billing-postcode">Postal Code</label>
               <input
                 class="user"
@@ -134,7 +134,7 @@
                 required
               />
             </div>
-            <div>
+            <div class="postcode-item">
               <label for="billing-country"><div>Country</div></label>
               <input
                 class="user"
@@ -215,7 +215,7 @@
             />
           </div>
           <div class="postcode">
-            <div>
+            <div class="postcode-item">
               <label for="shipping-state">State/Province</label>
               <input
                 class="user"
@@ -225,7 +225,7 @@
                 required
               />
             </div>
-            <div>
+            <div class="postcode-item">
               <label for="shipping-postcode">Postal Code</label>
               <input
                 class="user"
@@ -235,7 +235,7 @@
                 required
               />
             </div>
-            <div>
+            <div class="postcode-item">
               <label for="shipping-country"><div>Country</div></label>
               <input
                 class="user"
@@ -254,21 +254,39 @@
           <h2>Payment Information</h2>
           <div class="payment">
             <label for="card-number"><div>Card Number</div></label>
-            <input type="text" id="card-number" name="cardNumber" required />
+            <input
+              type="text"
+              class="user"
+              :id="card-number"
+              name="cardNumber"
+              required
+            />
           </div>
           <div class="payment">
             <label for="card-expiry"><div>Card Expiry (MM/YY)</div></label>
-            <input type="text" id="card-expiry" name="cardExpiry" required />
+            <input
+              type="text"
+              class="user"
+              id="card-expiry"
+              name="cardExpiry"
+              required
+            />
           </div>
           <div class="payment">
             <label for="card-cvv"><div>CVV</div></label>
-            <input type="text" id="card-cvv" name="cardCvv" required />
+            <input
+              type="text"
+              class="user"
+              id="card-cvv"
+              name="cardCvv"
+              required
+            />
           </div>
         </div>
 
         <!-- Submit Button -->
         <div>
-          <input type="submit" value="Place Order" />
+          <input type="submit" class="order-btn" value="Place Order" />
         </div>
       </form>
     </section>
