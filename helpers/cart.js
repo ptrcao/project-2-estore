@@ -30,21 +30,20 @@ class Cart {
             this.numItems++;
         }
     }
-    removeItem() {
-        const foundItems = this.items.find(i => i.id === item.id);
-        if (foundItems) {
+    removeItem(item, amount) {
+      const foundItem = this.items.find(i => i.id === item.id);
+        if (foundItem) {
             this.items = this.items.map(i=>{
-                if (i.id === foundItems.id) {
-                    return {...i, amount: i.amount + amount}
+                if (i.id === foundItem.id) {
+                    console.log(i)  
+                    this.total -= i.amount * i.price;
+                    this.total += parseInt(amount) * i.price;
+                    this.numItems -= i.amount;
+                    this.numItems += parseInt(amount); 
+                    return {...i, amount: parseInt(amount)}
                 }
                 return i
             })
-            this.total += parseInt(item.price);
-            this.numItems++;
-        } else {
-            this.items.push({...item, amount: amount});
-            this.total += parseInt(item.price);
-            this.numItems++;
         }
     }
 
