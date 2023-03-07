@@ -191,6 +191,9 @@ app.get('/product-categories/:id', async (req, res) => {
 app.get('/product-category/:id', async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
+  // for navbar
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu()
+
   const productCategoryId = req.params.id;
   console.log(productCategoryId);
 
@@ -220,7 +223,7 @@ app.get('/product-category/:id', async (req, res) => {
   data3.push(productCategoryName[0].product_category_name);
 
   // res.json( data )
-  res.render('product-category', { data3 })
+  res.render('product-category', { data3, megaMenuArray })
 });
 
 
@@ -228,6 +231,9 @@ app.get('/product-category/:id', async (req, res) => {
 
 app.get('/product/:id', async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
+
+  // for navbar
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu()
 
   const productId = req.params.id;
   console.log(productId);
@@ -258,7 +264,7 @@ app.get('/product/:id', async (req, res) => {
   data4.push(productName[0].product_name);
 
   // res.json( data )
-  res.render('product', { data4 })
+  res.render('product', { data4, megaMenuArray })
 });
 
 
