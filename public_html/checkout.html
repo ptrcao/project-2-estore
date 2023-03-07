@@ -247,44 +247,23 @@
           </div>
         </div>
 
-        <!-- Payment Information -->
-        <!-- No need for functionality of payment, it's just for show -->
+      <!-- Payment Information -->
+      <!-- No need for functionality of payment, it's just for show -->
+      <div>
+        <h2>Payment Information</h2>
         <div>
-          <h2>Payment Information</h2>
-          <div class="payment">
-            <label for="card-number"><div>Card Number</div></label>
-            <input
-              type="text"
-              class="user"
-              :id="card-number"
-              name="cardNumber"
-              required
-            />
-          </div>
-          <div class="payment">
-            <label for="card-expiry"><div>Card Expiry (MM/YY)</div></label>
-            <input
-              type="text"
-              class="user"
-              id="card-expiry"
-              name="cardExpiry"
-              required
-            />
-          </div>
-          <div class="payment">
-            <label for="card-cvv"><div>CVV</div></label>
-            <input
-              type="text"
-              class="user"
-              id="card-cvv"
-              name="cardCvv"
-              required
-            />
-          </div>
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" name="cardNumber" disabled />
+        </div>
+        <div>
+          <label for="card-expiry">Card Expiry (MM/YY)</label>
+          <input type="text" id="card-expiry" name="cardExpiry" disabled />
         </div>
 
         <!-- Submit Button -->
         <div>
+          <label for="card-cvv">CVV</label>
+          <input type="text" id="card-cvv" name="cardCvv" disabled />
           <input type="submit" class="order-btn" value="Place Order" />
           <button class="btn" href="/cart">Back To Cart</button>
         </div>
