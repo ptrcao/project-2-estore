@@ -2,6 +2,9 @@ const { ProductCategoryGender } = require('./models');
 const { ProductCategory } = require('./models');
 const { Product } = require('./models');
 
+
+
+
 const path = require('path');
 const express = require('express');
 const router = require('express').Router();
@@ -83,7 +86,8 @@ app.use(express.static('public_html'));
 
 // needed to serve font awesome
 const serveStatic = require('serve-static');
-// const { INSERT } = require('sequelize/types/query-types');
+
+
 app.use('/static', serveStatic(__dirname + '/node_modules'));
 
 async function getArrayForDeptAndCatMegaMenu(){
@@ -277,6 +281,8 @@ app.get('/cart', (req, res) => {
   res.sendFile(__dirname + '/public_html/cart.html');
 });
 
+const { insertOrder } = require('./controllers/queries');
+
 app.get('/checkout', (req, res) => {
   res.sendFile(__dirname + '/public_html/checkout.html');
 });
@@ -285,16 +291,15 @@ app.get('/checkout', (req, res) => {
 app.post('/api/checkout', (req, res) => {
   const body = req.body;
 console.log(body)
-  // INSERT
-  // RETURN 
-  res.redirect('/confirmation/:order-id');
+  insertOrder(body)
+  // res.redirect('/thank-you/:order-id');
 })
 
 
 
-app.get('/confirmation', (req, res) => {
+app.get('/thank-you/:order-id', (req, res) => {
   // res.sendFile(__dirname + '/public_html/checkout.html');
-  
+  res.render()
 });
 
 
