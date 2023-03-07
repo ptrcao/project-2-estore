@@ -54,7 +54,7 @@ app.set('view engine', 'ejs');
 // app.use(routes);
 
 
-const checkoutRoutes = require('./routes/api/checkoutRoutes');
+// const checkoutRoutes = require('./routes/api/checkoutRoutes');
 
 // app.use(
 // '/checkout'
@@ -276,7 +276,9 @@ app.get('/cart', (req, res) => {
   res.sendFile(__dirname + '/public_html/cart.html');
 });
 
-
+app.get('/checkout', (req, res) => {
+  res.sendFile(__dirname + '/public_html/checkout.html');
+});
 
 
 
