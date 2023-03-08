@@ -51,11 +51,7 @@ app.set("view engine", "ejs");
 // });
 // app.use(routes);
 
-// const checkoutRoutes = require('./routes/api/checkoutRoutes');
 
-// app.use(
-// '/checkout'
-// )
 
 // Expose the public_html folder to the client-side
 app.use(express.static("public_html"));
@@ -238,12 +234,23 @@ app.get("/cart", async (req, res) => {
 
 const { insertOrder } = require("./controllers/queries");
 
-app.get("/checkout", (req, res) => {
-  res.sendFile(__dirname + "/public_html/checkout.html");
+// const checkoutRoutes = require('./routes/api/checkoutRoutes');
+
+
+
+app.get("/checkout", async (req, res) => {
+  try{
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
+  res.render(path.join(__dirname, 'views', 'checkout.ejs'), { megaMenuArray });
+  }
+  catch(err){
+    console.error(err);
+    res.status(500).send(err)
+  }
 });
 
 // CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, SHIPPING DETAILS, PRODUCT DETAILS, REDIRECTS TO THANK YOU PAGE
-app.post("/api/checkout", async (req, res) => {
+app.post("/checkout", async (req, res) => {
 try{   
   const cart = req.session?.cart;
   if (!cart) {

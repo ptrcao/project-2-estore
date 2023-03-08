@@ -33,7 +33,7 @@ form.addEventListener('submit', function(event) {
     formObject[key] = value;
   }
   
-  fetch('/api/checkout', {
+  fetch('/checkout', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
