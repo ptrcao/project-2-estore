@@ -1,3 +1,4 @@
+const withAuth = ('auth.js');
 const router = require('express').Router();
 const {Product} = require('../models');
 
@@ -26,7 +27,7 @@ res.render('homepage', {
 }
 });
 
-router.get('/product/:id', withAuth, async (req, res) => {
+router.get('/Product/:id', withAuth, async (req, res) => {
     try {
       const dbProductData = await Product.findByPk(req.params.id, {
         include: [
@@ -46,7 +47,7 @@ router.get('/product/:id', withAuth, async (req, res) => {
       });
 
       const product = dbProductData.get({ plain: true });
-      res.render('product', { product, loggedIn: req.session.loggedIn });
+      res.render('Product', { product, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
