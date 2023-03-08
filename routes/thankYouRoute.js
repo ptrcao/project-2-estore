@@ -36,12 +36,81 @@ const orderForeignKeys = await Order.findOne({
   }
   );
 
+
+
   // Get the order_product data
   const orderProductData = await OrderProduct.findAll({
     where: {
       order_id: orderId
     },
   });
+
+
+//   [{"order_id":2,"product_id":3,"quantity":"1"},{"order_id":2,"product_id":4,"quantity":"3"}]
+//   orderProductData.map(element => {element.product_id : element.quantity})
+
+
+
+
+const productQtyPairs = orderProductData.map(element => {
+    const key = element.product_id.toString();
+    const value = parseInt(element.quantity);
+    return { [key]: value };
+  });
+
+
+  function getValueByKey(arr, key) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i][key]) {
+        return arr[i][key];
+      }
+    }
+    return null; // key not found
+  }
+
+
+  const allOrderDetails = await OrderProduct.findAll({
+    include: [
+      {
+        model: Order,
+        include: [
+          {
+            model: Customer
+          },
+          {
+            model: ShippingAddress
+          },
+          {
+            model: BillingAddress
+          }
+        ],
+        where: {
+          id: orderId
+        }
+      },
+      {
+        model: Product
+      }
+    ]
+  });
+
+ 
+  // Gives: [{"order_id":1,"product_id":2,"quantity":"3"},{"order_id":1,"product_id":3,"quantity":"2"},{"order_id":1,"product_id":9,"quantity":"2"}]
+
+
+//   function getQuantityForProductId(productId) {
+//     for (let i = 0; i < orderData.length; i++) {
+//       if (orderData[i].product_id === productId) {
+//         return orderData[i].quantity;
+//       }
+//     }
+//     return null; // product not found
+//   }
+  
+//   const quantityForProductId6 = getQuantityForProductId(6);
+//   console.log(quantityForProductId6); // output: 3
+
+
 
 
   // Get the product ids
@@ -90,8 +159,9 @@ const productData = await Product.findAll({
   });
 
 
-
-  
+  console.log('ship: ' + JSON.stringify(shippingData))
+  console.log('bill: ' + JSON.stringify(billingData))
+  console.log('badabam: ' + JSON.stringify(customerData))
 
   console.log('productData' + productData)
 //   res.json(orderForeignKeys)
@@ -106,14 +176,10 @@ console.log([orderProductData, productData, shippingData, billingData, customerD
   var megaMenuArray = await getArrayForDeptAndCatMegaMenu()
 
 
-     res.render('thank-you.ejs', { megaMenuArray, orderId, orderProductData, productData, shippingData, billingData, customerData })
+     res.render('thank-you.ejs', { megaMenuArray, productQtyPairs, getValueByKey, allOrderDetails, orderId, orderProductData, productData, shippingData, billingData, customerData })
 });
 
-// router.get("/:order-id", async (req, res) => {
-//     console.log(req.params.order-id)
-//     res.send(req.params.order-id)
- 
-// })
+
 
 
 module.exports = router;
