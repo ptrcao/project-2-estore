@@ -100,7 +100,7 @@ async function getArrayForDeptAndCatMegaMenu() {
   return productCategories;
 }
 
-app.get("/", async (req, res) => {
+app.get("/auth.js", async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
   // for navbar

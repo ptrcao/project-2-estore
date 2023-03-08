@@ -1,8 +1,8 @@
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public_html/index.html');
-  });
+//app.get('/', (req, res) => {
+   // res.sendFile(__dirname + '/public_html/index.html');
+  //});
 
-  const router = require('express').Router();
+const router = require('express').Router();
 
 const userRoutes = require('./user-routes');
 

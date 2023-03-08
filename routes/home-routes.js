@@ -1,6 +1,6 @@
+const withAuth = (__dirname + 'auth.js');
 const router = require('express').Router();
 const {Product} = require('../models');
-const withAuth = require('./auth.js');git 
 
 router.get ('/', async (req,res)=> {
 try {
