@@ -3,7 +3,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 // require('dotenv').config({ path: '../.env' });
 
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 
 // Create a connection object
 const sequelize = new Sequelize(

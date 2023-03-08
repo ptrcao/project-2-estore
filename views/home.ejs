@@ -11,26 +11,37 @@
 
     <!-- Navbar with Mega Menu -->
     <%- include('./navbar.ejs') %>
-    <h1>Store Home</h1>
+
     
  <!-- In your home.ejs view page: -->
 <!-- Gender Departments (M, W, kids, Unisex)
 Product Category (T-shirt, Shorts)
 Products () -->
+ <main class="container">
+    <% data.forEach(function(element) { %>
 
+      <div class="box">
+        <img
+          src="<%= element.product_category_gender_image %>"
+          alt="<%= element.product_category_gender_name %>"
+        />
+        <a  href="/product-categories/<%=element.id%>"><%= element.product_category_gender_name %></a>
+      </div>
+   
+
+    <% }); %>
+    
+    </main>
+
+    <footer>
+      <h3 class="footer"><a href="Contact Us">Contact Us</a></h3>
+      <h3 class="footer"><a href="Returns">Returns</a></h3>
+    </footer>
+  </body>
 
 <!-- add event listener to grab and return e.target.attribute("data-id") -->
 
-  <% data.forEach(function(element) { %>
-    <a href="/product-categories/<%=element.id%>">
-      <div class="gender-department-banner card" data-gender_id=<%=element.id%>>
-        
-        <h2><%= element.product_category_gender_name %></h2>
-        <img src="<%= element.product_category_gender_image %>" />
 
-      </div>
-    </a>
-    <% }); %>
 
       <script type="application/javascript" src="js/home.js"></script>
   </body>

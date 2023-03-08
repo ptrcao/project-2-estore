@@ -10,15 +10,33 @@
 
         <!-- Navbar with Mega Menu -->
         <%- include('./navbar.ejs') %>
-
-
-    <h1><%= data3.at(-1); %></h1>
+        <h1 class="text-center"><%= data3.at(-1); %></h1>
+    <div class="flexbox-container">
+      
     <% data3.forEach(function(element) { %>
-      <a href="/product/<%=element.id%>"><div class="product-img card" data-product_id=<%=element.id%>>
-        <h2><%= element.product_name %></h2>
-        <img src="<%= element.product_image %>" />
-      </div></a>
+      <% if (!element.id) return; %>
+      <a href="/product/<%=element.id%>">
+      <div id="item-1" class="flexbox-item flexbox-item-1">
+        <div class="card">
+          <div class="placeholder">
+            <img
+              src="<%= element.product_image %>"
+              alt="clothing"
+              style="width: 100%"
+            />
+          </div>
+          <div class="card-content">
+            <h3><%= element.product_name %></h3>
+            <p class="price">$<%= element.price %></p>
+            
+          </div>
+      
+        </div>
+      </div>
+    </a>
     <% }); %>
+     
+      </div>
 
   </body>
 </html>

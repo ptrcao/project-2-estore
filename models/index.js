@@ -109,4 +109,5 @@ Customer.hasMany(Order, {
     ProductCategoryGender,
     OrderProduct,
     User
+    ShippingAddress
   };
