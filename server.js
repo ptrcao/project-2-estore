@@ -247,23 +247,35 @@ app.get("/checkout", (req, res) => {
   res.sendFile(__dirname + "/public_html/checkout.html");
 });
 
-// // CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, PRODUCT DETAILS
-// app.post("/api/checkout", (req, res) => {
-//   const cart = req.session?.cart;
-//   if (!cart) {
-//     res.status(400).json({ error: "No cart" });
-//     return;
-//   }
-//   // All items in the cart and their quantities
-//   const cartItems = req.session.cart.items.map((item) => {
-//     return { id: item.id, qty: item.amount };
-//   });
+// CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, SHIPPING DETAILS, PRODUCT DETAILS, REDIRECTS TO THANK YOU PAGE
+app.post("/api/checkout", async (req, res) => {
+try{   
+  const cart = req.session?.cart;
+  if (!cart) {
+    res.status(400).json({ error: "No cart" });
+    return;
+  }
+  // All items in the cart and their quantities
+  const cartItems = req.session.cart.items.map((item) => {
+    return { id: item.id, qty: item.amount };
+  });
+  const body = req.body;
+  console.log(body);
+  const orderId = await insertOrder(body, cartItems);
 
-//   const body = req.body;
-//   console.log(body);
-//   insertOrder(body, cartItems);
-//   res.redirect("/thank-you/:order-id");
-// });
+  //res.redirect("/thank-you/:order-id");
+  res.json({
+    'orderId': orderId
+  }) 
+}
+catch(err){ 
+  console.error(err)
+  res.status(500).send(err); 
+}
+
+  
+  
+});
 
 const thankYouRoute = require("./routes/thankYouRoute");
 app.use("/thank-you", thankYouRoute);
