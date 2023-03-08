@@ -153,8 +153,3 @@ Jason Yoo - github: jasonyoo3026, jasonyoo3026@gmail.com
 ## License
 
 This project is under the licence MIT
-
-
-
-
-11. To reset/restore the database to its original state, just shut down your server and repeat from Step 1.
