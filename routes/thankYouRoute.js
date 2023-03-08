@@ -159,9 +159,9 @@ const productData = await Product.findAll({
   });
 
 
-  console.log('ship: ' + JSON.stringify(shippingData))
-  console.log('bill: ' + JSON.stringify(billingData))
-  console.log('badabam: ' + JSON.stringify(customerData))
+//   console.log('ship: ' + JSON.stringify(shippingData))
+//   console.log('bill: ' + JSON.stringify(billingData))
+//   console.log('badabam: ' + JSON.stringify(customerData))
 
   console.log('productData' + productData)
 //   res.json(orderForeignKeys)
