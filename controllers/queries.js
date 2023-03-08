@@ -55,7 +55,7 @@ const { BillingAddress,
 //     })
 
 
-async function insertOrder(reqBody){
+async function insertOrder(reqBody, cartItems){
 
 // COMPLETE SCENARIO: How to enter a new order into the database:
 
@@ -172,14 +172,14 @@ orderId = orderId[0].id
 console.log('Got orderId: ' + orderId)
 
 // mock value
-productLineArray = [{id: 1, qty: 2},{id: 3, qty: 1},{id: 10, qty: 5}]
+// productLineArray = [{id: 1, qty: 2},{id: 3, qty: 1},{id: 10, qty: 5}]
 
-console.log('Got mock productLineArray: ' + productLineArray)
+console.log('Got cartItems: ' + JSON.stringify(cartItems))
 
 
 
 const insertOrderArray = [];
-for(let i = 0; i < productLineArray.length; i++){
+for(let i = 0; i < cartItems.length; i++){
     
     //Insert the order-product
     // sql = `INSERT INTO order_product (order_id, product_id, quantity)
@@ -187,8 +187,8 @@ for(let i = 0; i < productLineArray.length; i++){
     
     const insertOrderElement = await OrderProduct.create({
         order_id: orderId,
-        product_id: productLineArray[i].id,
-        quantity: productLineArray[i].qty
+        product_id: cartItems[i].id,
+        quantity: cartItems[i].qty
     },
     { raw: true }
     )
