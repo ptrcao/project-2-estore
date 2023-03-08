@@ -290,7 +290,7 @@ app.use("/thank-you", thankYouRoute);
 // })
 
 // Connect to the database before starting the Express.js server
-sequelize.sync().then(() => {
+sequelize.sync({force : false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
 

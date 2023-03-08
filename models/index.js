@@ -1,4 +1,5 @@
 // import models
+const User = require('./User');
 const BillingAddress = require('./Billing_Address');
 const Customer = require('./Customer')
 const OrderProduct = require('./Order_Product')
@@ -7,6 +8,8 @@ const ProductCategoryGender = require('./Product_Category_Gender')
 const ProductCategory = require('./Product_Category');
 const Product = require('./Product');
 const ShippingAddress = require('./Shipping_Address');
+
+
 
 
 
@@ -105,5 +108,6 @@ Customer.hasMany(Order, {
     ProductCategory,
     ProductCategoryGender,
     OrderProduct,
+    User,
     ShippingAddress
   };
