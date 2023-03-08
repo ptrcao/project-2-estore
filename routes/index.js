@@ -1,5 +1,11 @@
 const router = require('express').Router();
 
+const apiRoutes = require('./api');
+const homeRoutes = require('./home-routes.js');
+
+router.use('/', homeRoutes);
+router.use('/api', apiRoutes);
+
 // Set the view engine to EJS
 router.set('view engine', 'ejs');
 
