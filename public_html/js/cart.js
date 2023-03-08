@@ -1,11 +1,11 @@
 
 
 
-const cartBtns = document.querySelectorAll('.add-to-cart-btn');
+const cartBtns = document.querySelectorAll('.cart-btn');
 console.log(cartBtns)
 cartBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-        const id = e.target.closest('.card').dataset.product_id;
+        const id = e.target.closest('.product').dataset.product_id;
         console.log(id);
         fetch('/api/cart', {
             method: 'POST',
