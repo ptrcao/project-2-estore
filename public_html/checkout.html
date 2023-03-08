@@ -28,7 +28,7 @@
   </header>
   <body>
     <section class="checkout-page">
-      <h1>Review Order</h1>
+      <h1>Checkout</h1>
       <form class="checkout" id="checkout-form">
         <!-- Customer Information -->
         <div>
@@ -279,7 +279,7 @@
               :id="card-number"
               name="cardNumber"
               placeholder="xxxx xxxx xxxx xxxx"
-              required
+              disabled
             />
           </div>
           <div class="payment">
@@ -290,7 +290,7 @@
               id="card-expiry"
               name="cardExpiry"
               placeholder="xx / xx"
-              required
+              disabled
             />
           </div>
           <div class="payment">
@@ -301,7 +301,7 @@
               id="card-cvv"
               name="cardCvv"
               placeholder="xxx"
-              required
+              disabled
             />
           </div>
         </div>
