@@ -8,10 +8,12 @@ const router = require("express").Router();
 // Import the connection object
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const app = express();
-// const routes = require('./controllers')
-const sequelize = require("./config/connection");
 
+// const routes = require('./controllers')
+
+const routes = require('./controllers');
+const sequelize = require("./config/connection");
+const app = express();
 app.use(
   session({
     secret: process.env.COOKIE_SECRET || "secret",
@@ -27,6 +29,9 @@ app.use(
     },
   })
 );
+
+app.use(session(sess));
+
 const PORT = 3001;
 
 app.use(express.json());
@@ -59,6 +64,7 @@ app.set("view engine", "ejs");
 
 // Expose the public_html folder to the client-side
 app.use(express.static("public_html"));
+app.use(routes);
 // /product/:id
 // /product_categories/
 // pro
@@ -95,8 +101,9 @@ async function getArrayForDeptAndCatMegaMenu() {
   return productCategories;
 }
 
-app.get("/", async (req, res) => {
-  // res.sendFile(path.join(__dirname + '/views/home.html'))
+app.get("/auth.js", async (req, res) => {
+  //const withAuth = require(__dirname + '/public_html/auth.js');
+  // res.sendFile(path.join(__dirname + '/views/home.html')) 
 
   // for navbar
 const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
