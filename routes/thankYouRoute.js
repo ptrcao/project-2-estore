@@ -69,30 +69,30 @@ const productQtyPairs = orderProductData.map(element => {
   }
 
 
-  const allOrderDetails = await OrderProduct.findAll({
-    include: [
-      {
-        model: Order,
-        include: [
-          {
-            model: Customer
-          },
-          {
-            model: ShippingAddress
-          },
-          {
-            model: BillingAddress
-          }
-        ],
-        where: {
-          id: orderId
-        }
-      },
-      {
-        model: Product
-      }
-    ]
-  });
+//   const allOrderDetails = await OrderProduct.findAll({
+//     include: [
+//       {
+//         model: Order,
+//         include: [
+//           {
+//             model: Customer
+//           },
+//           {
+//             model: ShippingAddress
+//           },
+//           {
+//             model: BillingAddress
+//           }
+//         ],
+//         where: {
+//           id: orderId
+//         }
+//       },
+//       {
+//         model: Product
+//       }
+//     ]
+//   });
 
  
   // Gives: [{"order_id":1,"product_id":2,"quantity":"3"},{"order_id":1,"product_id":3,"quantity":"2"},{"order_id":1,"product_id":9,"quantity":"2"}]
@@ -132,6 +132,10 @@ const productData = await Product.findAll({
     },
     raw: true
   });
+
+  console.log("----------------------------------------------------")
+  console.log(productData)
+  console.log("----------------------------------------------------")
 
   // GIVES:
   // [{"id":2,"product_name":"Casual Cotton Skirt","price":"40","stock":75,"product_image":"/images/prod_images/casual-cotton-skirt.png","description":"Our Katies Cotton Blend Casual Skirts are perfect for any occasion, with a comfortable and stylish design that you'll love.","product_category_id":1},{"id":3,"product_name":"Ruched Pocket Skirt","price":"30","stock":50,"product_image":"/images/prod_images/ruched-pocket-skirt.png","description":"Flaunt your curves in our EMERY ROSE Ruched Wideband Waist Hidden Pocket Skirt, featuring a flattering and functional design.","product_category_id":1},{"id":9,"product_name":"Thigh High Stockings","price":"9","stock":100,"product_image":"/images/prod_images/thigh-high-stockings.png","description":"Feel sexy and confident with our Thigh High Stockings, featuring a flattering and comfortable design.","product_category_id":3}]
@@ -176,7 +180,7 @@ console.log([orderProductData, productData, shippingData, billingData, customerD
   var megaMenuArray = await getArrayForDeptAndCatMegaMenu()
 
 
-     res.render('thank-you.ejs', { megaMenuArray, productQtyPairs, getValueByKey, allOrderDetails, orderId, orderProductData, productData, shippingData, billingData, customerData })
+     res.render('thank-you.ejs', { megaMenuArray, productQtyPairs, getValueByKey, orderId, orderProductData, productData, shippingData, billingData, customerData })
 });
 
 

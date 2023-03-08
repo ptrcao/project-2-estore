@@ -154,7 +154,7 @@ console.log('got time: ' + formattedTime)
 // Insert the order details
 // `INSERT INTO 'order' (customer_id, billing_address_id, shipping_address_id, order_date_time)
 // VALUES (@customer_id, @billing_address_id, @shipping_address_id, '${orderDateTime}');`
-const insertOrder = await Order.create({
+await Order.create({
     customer_id: customerId,
     billing_address_id: billingAddressId,
     shipping_address_id: shippingAddressId,
@@ -176,27 +176,40 @@ console.log('Got orderId: ' + orderId)
 
 console.log('Got cartItems: ' + JSON.stringify(cartItems))
 
-
+// Loop is not a asynchronous (cannot use await in for loop)
+// hence we use promise.all
+// you cannot insert per loop because the loop will not wait for the insert operations to complete before progressing
+// create array first and then bulk insert/create
 
 const insertOrderArray = [];
+const ordersToBeCreated = [];
 for(let i = 0; i < cartItems.length; i++){
+    ordersToBeCreated.push({
+        order_id: orderId,
+        product_id: cartItems[i].id,
+        quantity: cartItems[i].qty
+    })
     
     //Insert the order-product
     // sql = `INSERT INTO order_product (order_id, product_id, quantity)
     // VALUES (@order_id, ${productLineArray[i].id}, ${productLineArray[i].qty});`
     
-    const insertOrderElement = await OrderProduct.create({
-        order_id: orderId,
-        product_id: cartItems[i].id,
-        quantity: cartItems[i].qty
-    },
-    { raw: true }
-    )
-    insertOrderArray.push(insertOrderElement)
+    // const insertOrderElement = await OrderProduct.create({
+    //     order_id: orderId,
+    //     product_id: cartItems[i].id,
+    //     quantity: cartItems[i].qty
+    // },
+    // { raw: true }
+    // )
+    // insertOrderArray.push(insertOrderElement)
 }
+
+await OrderProduct.bulkCreate(ordersToBeCreated);
 console.log('insertOrderArray');
 
 console.log('Done');
+
+return orderId;
 
 }
 
