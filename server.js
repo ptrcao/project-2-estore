@@ -10,8 +10,9 @@ const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 // const routes = require('./controllers')
-const sequelize = require("./config/connection");
+const routes = require('./routes');
 
+const sequelize = require("./config/connection");
 app.use(
   session({
     secret: process.env.COOKIE_SECRET || "secret",
@@ -27,7 +28,10 @@ app.use(
     },
   })
 );
+
 const PORT = 3001;
+
+app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -59,6 +63,7 @@ app.set("view engine", "ejs");
 
 // Expose the public_html folder to the client-side
 app.use(express.static("public_html"));
+app.use(routes);
 // /product/:id
 // /product_categories/
 // pro
