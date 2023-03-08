@@ -1,4 +1,7 @@
-<nav>
+<head>
+  <link rel="stylesheet" href="/css/nav.css">
+</head>
+<nav class="nav">
     <a href="/" class="nav__logo">
         <!-- Add your logo HTML here -->
         <img src="/images/logo/impress-apparel.png">
@@ -7,23 +10,91 @@
   <ul>
     <% megaMenuArray.forEach(function(productCategoryGender) { %>
       <li class="nav__item nav__dropdown">
-        <a href="/product-categories/<%=productCategoryGender.id%>" class="nav__link"><%= productCategoryGender.product_category_gender_name %></a>
-        <div class="nav__megamenu">
-          <div class="nav__column">
-            <ul>
-              <% productCategoryGender.product_categories.forEach(function(productCategory) { %>
-                <li><a href="/product-category/<%=productCategory.id%>"><%= productCategory.product_category_name %></a></li>
-              <% }); %>
-            </ul>
+        <div class="n">
+          <a href="/product-categories/<%=productCategoryGender.id%>" class="nav__link"><%= productCategoryGender.product_category_gender_name %></a>
+          <div class="nav__megamenu">
+            <div class="nav__column">
+              <ul>
+                <% productCategoryGender.product_categories.forEach(function(productCategory) { %>
+                  <li><a href="/product-category/<%=productCategory.id%>"><%= productCategory.product_category_name %></a></li>
+                <% }); %>
+              </ul>
+            </div>
           </div>
         </div>
+       
       </li>
     <% }); %>
-
-    <li class="nav__item nav__cart">
-        <a href="/cart" class="nav__link"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a>
-        <p id="cart-quantity"></p>
-    </li>
-    </div>
   </ul>
+  <div id="cart-hover">
+    <li class="nav__item nav__cart">
+        <a href="/cart" class="nav__link"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"> <p id="cart-quantity"></p></i></a>
+       <div class="cart-items">
+        <div class="cart">
+          <ul>
+         
+         
+          </ul>
+       </div>
+    </li>
+  </div>
+    </div>
+    <script>
+      const navLinks = document.querySelectorAll('.n');
+      navLinks.forEach(link =>{
+        link.addEventListener('mouseover', (e) => {
+          link.children[1].style.display = "flex";
+          link.addEventListener('mouseleave', (e) => {
+            if (e.target.children[1]) {
+              e.target.children[1].style.display = "none";
+            }
+            
+          })
+        })
+      })
+
+      const cartHover = document.getElementById('cart-hover');
+      cartHover.addEventListener('mouseover', async (e) => {
+        const res = await fetch('/api/cart');
+        const data = await res.json();
+        cartHover.children[0].children[1].children[0].children[0].innerHTML = "";
+        if (!data.items.length) {
+          const li = document.createElement('li');
+          li.innerHTML = `
+          <div />
+          <p href="#">Cart is empty!</p>
+          <div class="price"></div>
+          `
+          cartHover.children[0].children[1].children[0].children[0].appendChild(li);
+        } else {
+          data.items.forEach(item=>{
+          const li = document.createElement('li');
+          li.innerHTML = `
+          <img src="${item.product_image}" alt="logo" />
+          <p href="#">${item.product_name} x${item.amount}</p>
+          <div class="price">$${item.price * item.amount}</div>
+          `
+      
+          cartHover.children[0].children[1].children[0].children[0].appendChild(li);
+        })
+        const price = document.createElement('li');
+        price.innerHTML = `
+       
+          <p id="total">Total</p>
+          <div />
+          <p class="price">$${data.total}</p>
+        `
+        cartHover.children[0].children[1].children[0].children[0].appendChild(price);
+        }
+       
+        cartHover.children[0].children[1].style.display = "flex";
+        cartHover.addEventListener('mouseleave', (e) => {
+          if (e.target.children[0].children[1]) {
+            e.target.children[0].children[1].style.display = "none";
+          }
+          
+        })
+      })
+     
+    </script>
 </nav>

@@ -225,22 +225,15 @@ app.get("/product/:id", async (req, res) => {
 
   const data4 = await getProductCategory();
 
-  const productName = await Product.findAll({
-    where: {
-      id: productId, // replace 3 with the desired id value
-    },
-    attributes: ["product_name"], // select only the 'name' attribute
-    raw: true, // Set raw to true to get only the data
-  });
 
-  data4.push(productName[0].product_name);
 
   // res.json( data )
   res.render("product", { data4, megaMenuArray });
 });
 
-app.get("/cart", (req, res) => {
-  res.sendFile(__dirname + "/public_html/cart.html");
+app.get("/cart", async (req, res) => {
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
+  res.render("cart", {megaMenuArray});
 });
 
 const { insertOrder } = require("./controllers/queries");

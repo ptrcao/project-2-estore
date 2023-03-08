@@ -33,6 +33,13 @@ class Cart {
     removeItem(item, amount) {
       const foundItem = this.items.find(i => i.id === item.id);
         if (foundItem) {
+            if (parseInt(amount) === 0) {
+                this.items = this.items.filter(i => i.id !== item.id);
+                this.total -= foundItem.amount * foundItem.price;
+                this.numItems -= foundItem.amount;
+                console.log(this.items);
+                return;
+            }
             this.items = this.items.map(i=>{
                 if (i.id === foundItem.id) {
                     console.log(i)  

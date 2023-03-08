@@ -14,21 +14,12 @@
     />
     <script src="/js/getCart.js" defer></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="application/javascript" src="./cart.js" defer></script>
   </head>
-
-  <header class="main-header">
-    <img src="./images/logo/impress-apparel.png" alt="logo" />
-    <div class="nav-container">
-      <div class="nav"><a href="#mens">Men</a></div>
-      <div class="nav"><a href="#women">Women</a></div>
-      <div class="nav"><a href="#kids">Kids</a></div>
-      <div class="nav"><a href="#accessories">Accessories</a></div>
-      <a href="#cart" class="nav fa fa-cart-shopping"></a>
-    </div>
-    <div id="hamburgerButton" class="hamburger fa-solid fa-bars"></div>
-  </header>
   <body>
-    <script type="application/javascript" src="./cart.js"></script>
+    
+ 
+    <%- include('./navbar.ejs') %>
     <div class="cart-container">
       <div class="cart">
         <h3>
@@ -79,10 +70,6 @@
           <h3>Total</h3>
           <div class="price" style="color: black"><b id="total-cost">$30</b></div>
         </div>
- 
-
-      
-
 
       <div class="summary">
       
@@ -91,28 +78,10 @@
         </div>
       </div>
     </div>
-    <div id="hamburgerNav" class="hamburger-nav-overlay">
-      <div id="hamburgerCloseButton" class="hamburger fa-solid fa-bars"></div>
-      <div class="nav"><a href="#mens">Men</a></div>
-      <div class="nav"><a href="#women">Women</a></div>
-      <div class="nav"><a href="#kids">Kids</a></div>
-      <div class="nav"><a href="#accessories">Accessories</a></div>
-      <div class="nav"><a href="#login">Login</a></div>
-      <a href="#cart" class="nav fa fa-cart-shopping"></a>
-    </div>
+
     <footer>
       <h3>Contact Us</h3>
       <h3>Returns</h3>
     </footer>
-    <div id="hamburgerNav" class="hamburger-nav-overlay">
-      <div id="hamburgerCloseButton" class="hamburger fa-solid fa-bars"></div>
-      <div class="nav"><a href="#mens">Men</a></div>
-      <div class="nav"><a href="#women">Women</a></div>
-      <div class="nav"><a href="#kids">Kids</a></div>
-      <div class="nav"><a href="#accessories">Accessories</a></div>
-      <div class="nav"><a href="#login">Login</a></div>
-      <a href="#cart" class="nav fa fa-cart-shopping"></a>
-    </div>
   </body>
-  <script src="./js/hamburger.js"></script>
 </html>
