@@ -99,7 +99,7 @@ app.get("/", async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
   // for navbar
-  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
+const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
 
   const getGenderDepartments = async () => {
     const productCategoryGenderData = await ProductCategoryGender.findAll({
@@ -249,28 +249,66 @@ app.get("/checkout", (req, res) => {
   res.sendFile(__dirname + "/public_html/checkout.html");
 });
 
-// CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, PRODUCT DETAILS
-app.post("/api/checkout", (req, res) => {
-  const cart = req.session?.cart;
-  if (!cart) {
-    res.status(400).json({ error: "No cart" });
-    return;
-  }
-  // All items in the cart and their quantities
-  const cartItems = req.session.cart.items.map((item) => {
-    return { id: item.id, qty: item.amount };
-  });
+// // CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, PRODUCT DETAILS
+// app.post("/api/checkout", (req, res) => {
+//   const cart = req.session?.cart;
+//   if (!cart) {
+//     res.status(400).json({ error: "No cart" });
+//     return;
+//   }
+//   // All items in the cart and their quantities
+//   const cartItems = req.session.cart.items.map((item) => {
+//     return { id: item.id, qty: item.amount };
+//   });
 
-  const body = req.body;
-  console.log(body);
-  insertOrder(body, cartItems);
-  res.redirect("/thank-you/:order-id");
-});
+//   const body = req.body;
+//   console.log(body);
+//   insertOrder(body, cartItems);
+//   res.redirect("/thank-you/:order-id");
+// });
 
 const thankYouRoute = require("./routes/thankYouRoute");
 app.use("/thank-you", thankYouRoute);
+
+
+// app.get("/thankyou/:id", async (req, res) => {
+
+//   const orderId = req.params['order-id'];
+
+// // Sequelize Query
+// // findAll shipping_address_id, billing_address_id, customer_id
+
+// const orderForeignKeys = await Order.findOne({
+//     where: { id: orderId },
+//     // attributes: ['firstName', 'lastName']
+//     raw: true
+//   }
+//   );
+//   console.log(orderId)
+// //   res.json(orderForeignKeys)
+//   console.log(orderForeignKeys)
+// //   res.render("thank-you", {});
+// res.send("Hello")
+// // res.sendFile('../views/thank-you.ejs')
+// });
+
+// app.get('/p/:id',function(req,res){
+//   res.send('Id is ' + req.params.id)
+// })
 
 // Connect to the database before starting the Express.js server
 sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
+
+
+// let megaMenuArray; 
+
+// async function getMegaMenuData() {
+//   megaMenuArray = await getArrayForDeptAndCatMegaMenu();
+// }
+
+// getMegaMenuData();
+
+
+// module.exports = { megaMenuArray };

@@ -1,5 +1,5 @@
 const express = require("express");
-const { or } = require("../config/connection");
+// const { or } = require("../config/connection");
 const router = express.Router();
 
 const { BillingAddress, 
@@ -10,24 +10,110 @@ const { BillingAddress,
     ShippingAddress
   } = require('../models');
 
-  
-router.get("/:order-id", async (req, res) => {
+// const megaMenuArray = require('../server')
 
-  const orderId = req.params['order-id'];
+const { getArrayForDeptAndCatMegaMenu }  = require('../helpers/getMegaMenuCategories');
+
+
+
+
+// do not use "/:orderid" use '/:id' - its a fixed keyword, not up to you
+router.get("/:id", async (req, res) => {
+
+  const orderId = req.params.id;
+
+//   console.log('session stuff' + req.session.cart);
+
 
 // Sequelize Query
-// findAll shipping_address_id, billing_address_id, customer_id
+// Given the order id (known)
 
+// get the shipping_address_id, billing_address_id, customer_id
 const orderForeignKeys = await Order.findOne({
     where: { id: orderId },
     // attributes: ['firstName', 'lastName']
     raw: true
   }
   );
-  console.log(orderId)
-  res.json(orderForeignKeys)
-  console.log(orderForeignKeys)
+
+  // Get the order_product data
+  const orderProductData = await OrderProduct.findAll({
+    where: {
+      order_id: orderId
+    },
+  });
+
+
+  // Get the product ids
+  const productIds = await OrderProduct.findAll({
+    where: {
+      order_id: orderId
+    },
+    attributes: ['product_id']
+  });
+  // GIVES: [{"product_id":2},{"product_id":3},{"product_id":9}]
+
+
+let productIdsGetValuesArray = productIds.map( elements => elements.product_id )
+// GIVES: [2,3,9]
+
+const productData = await Product.findAll({
+    where: {
+      id: productIdsGetValuesArray
+    },
+    raw: true
+  });
+
+  // GIVES:
+  // [{"id":2,"product_name":"Casual Cotton Skirt","price":"40","stock":75,"product_image":"/images/prod_images/casual-cotton-skirt.png","description":"Our Katies Cotton Blend Casual Skirts are perfect for any occasion, with a comfortable and stylish design that you'll love.","product_category_id":1},{"id":3,"product_name":"Ruched Pocket Skirt","price":"30","stock":50,"product_image":"/images/prod_images/ruched-pocket-skirt.png","description":"Flaunt your curves in our EMERY ROSE Ruched Wideband Waist Hidden Pocket Skirt, featuring a flattering and functional design.","product_category_id":1},{"id":9,"product_name":"Thigh High Stockings","price":"9","stock":100,"product_image":"/images/prod_images/thigh-high-stockings.png","description":"Feel sexy and confident with our Thigh High Stockings, featuring a flattering and comfortable design.","product_category_id":3}]
+
+  
+  const shippingData = await ShippingAddress.findAll({
+    where: {
+      id: orderForeignKeys.shipping_address_id
+    },
+    raw: true
+  });
+
+  const billingData = await BillingAddress.findAll({
+    where: {
+      id: orderForeignKeys.billing_address_id
+    },
+    raw: true
+  });
+
+  const customerData = await Customer.findAll({
+    where: {
+      id: orderForeignKeys.customer_id
+    },
+    raw: true
+  });
+
+
+
+  
+
+  console.log('productData' + productData)
+//   res.json(orderForeignKeys)
+//   console.log(orderForeignKeys)
 //   res.render("thank-you", {});
+
+console.log('yo yo')
+console.log([orderProductData, productData, shippingData, billingData, customerData].map((element) => {
+    return JSON.stringify(element) + '<br>';
+  }).join(''));
+
+  var megaMenuArray = await getArrayForDeptAndCatMegaMenu()
+
+
+     res.render('thank-you.ejs', { megaMenuArray, orderId, orderProductData, productData, shippingData, billingData, customerData })
 });
+
+// router.get("/:order-id", async (req, res) => {
+//     console.log(req.params.order-id)
+//     res.send(req.params.order-id)
+ 
+// })
+
 
 module.exports = router;

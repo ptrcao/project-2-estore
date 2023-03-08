@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+
+  </head>
+  <body>
+        <!-- Navbar with Mega Menu -->
+        <%- include('./navbar.ejs') %>
+
+        <h1>Thank you for your order!</h1>
+        
+
+
+        
+        <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i = 0; i < productData.length; i++) { %>
+                <tr>
+                  <td><%= productData[i].id %></td>
+                  <td><img src="<%= productData[i].product_image %>" alt="<%= productData[i].product_name %>"></td>
+                  <td><%= productData[i].product_name %></td>
+                  <td><%= productData[i].price %></td>
+                  <td><%= orderProductData[i].quantity %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+          
+   
+    <script src="/js/cart.js"></script>
+  </body>
+</html>
