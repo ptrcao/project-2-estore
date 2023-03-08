@@ -12,7 +12,8 @@ fetch('api/cart')
 .then(data => {
     const cartItems = document.getElementById('cart-items');
     const totalCost = document.getElementById('total-cost');
-    console.log(data);
+    const totalItems = document.getElementById('total');
+    totalItems.innerText = data.numItems;
     totalCost.innerText = `$${data.total}`;
     cartItems.innerHTML = "";
     console.log(data);
