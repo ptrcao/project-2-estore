@@ -1,4 +1,5 @@
 const express = require("express");
+const { or } = require("../config/connection");
 const router = express.Router();
 
 const { BillingAddress, 
@@ -23,6 +24,7 @@ const orderForeignKeys = await Order.findOne({
     raw: true
   }
   );
+  console.log(orderId)
   res.json(orderForeignKeys)
   console.log(orderForeignKeys)
 //   res.render("thank-you", {});
