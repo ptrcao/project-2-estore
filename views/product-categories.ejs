@@ -11,13 +11,22 @@
     <!-- Navbar with Mega Menu -->
     <%- include('./navbar.ejs') %>
 
-    <h1><%= data2.at(-1); %> Product Categories</h1>
-    <% data2.forEach(function(element) { %>
-      <a href="/product-category/<%=element.id%>"><div class="product-category-banner card" data-product_category_id=<%=element.id%>>
-        <h2><%= element.product_category_name %></h2>
-        <img src="<%= element.product_category_image %>" />
-      </div></a>
-    <% }); %>
+    <h1 class="text-center"><%= data2.at(-1); %></h1>
+    <div class="category-container">
+      <% data2.forEach(function(element) { %>
+        <% if (!element.id) return; %>
+        <a href="/product-category/<%=element.id%>">
+          <div class="category">
+            <div>
+              <img src="<%= element.product_category_image %>"  style="width: 100%" />
+              <div class="content">
+                <h3><%= element.product_category_name %></h3>
+              </div>
+            </div>
+          </div>
+        </a>  
+      <% }); %>
+    </div>
 
   </body>
 </html>

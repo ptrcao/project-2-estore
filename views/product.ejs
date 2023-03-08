@@ -11,23 +11,24 @@
 
         <!-- Navbar with Mega Menu -->
         <%- include('./navbar.ejs') %>
-
+        <div class="container-product">
     <% data4.forEach(function(element) { %>
-      <div class="product-img card" data-product_id=<%=element.id%>>
-        <h1><%= element.product_name %></h1>
-        <img src="<%= element.product_image %>" />
-        <% if (element.price != null) { %>
-          <button class="add-to-cart-btn" type="button">Add to Cart</button>
-          <p>Price: $<%= element.price %></p>
-        <% } %>
-        <% if (element.stock != null) { %>
-          <p>Stock: <%= element.stock %></p>
-        <% } %>
-
-        <p><%= element.description %></p>
-     
+      <div class="product" data-product_id=<%=element.id%>>
+        <img class="product-img" src="<%= element.product_image %>">
+        <div>
+            <h1><%= element.product_name %></h1>
+            <p><%= element.description %></p>
+            <div class="content-product">
+                <p>Price: $<%= element.price %></p>
+                <p>Stock: <%= element.stock %></p>
+            </div>
+          <button class="cart-btn" type="button">Add to Cart</button>
+        </div>
       </div>
+
+    
     <% }); %>
+  </div>
    
     <script src="/js/cart.js"></script>
   </body>

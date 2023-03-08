@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cart</title>
+    <meta charset="UTF-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="/js/getCart.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="application/javascript" src="./cart.js" defer></script>
+  </head>
+  <body>
+    
+ 
+    <%- include('./navbar.ejs') %>
+    <div class="cart-container">
+      <div class="cart">
+        <h3>
+          Cart
+          <span class="price" style="color: black">
+            <div>
+              <i class="fa fa-shopping-cart"></i>
+              <b id="total">4</b>
+            </div>
+          </span>
+        </h3>
+      </div>
+      <br />
+
+        <hr />
+        <div id="cart-items">
+
+     
+        <div class="item">
+          <a class="view-cart" href="#">Product 1</a>
+          <div class="price">$15</div>
+        </div>
+
+      <hr />
+      <div class="item">
+        <a class="view-cart" href="#">Product 1</a>
+        <div class="price">$15</div>
+      </div>
+
+
+      <div class="item">
+        <a class="view-cart" href="#">Product 2</a>
+        <div class="price">$5</div>
+      </div>
+
+      <div class="item">
+        <a class="view-cart" href="#">Product 3</a>
+        <div class="price">$8</div>
+      </div>
+
+        <div class="item">
+          <a class="view-cart" href="#">Product 4</a>
+          <div class="price">$2</div>
+        </div>
+      </div>
+        <hr />
+        <div class="cart">
+          <h3>Total</h3>
+          <div class="price" style="color: black"><b id="total-cost">$30</b></div>
+        </div>
+
+      <div class="summary">
+      
+        <div class="continue-btn">
+          <a class="btn" href="/checkout">Continue To Checkout</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <h3>Contact Us</h3>
+      <h3>Returns</h3>
+    </footer>
+  </body>
+</html>
