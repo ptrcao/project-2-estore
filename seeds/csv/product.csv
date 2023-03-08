@@ -40,7 +40,7 @@ id,product_name,price,stock,product_category_id,product_image,description
 39,Cross-Body Bag,24.99,60,6,/images/prod_images/cross-body-bag.png,"Carry your essentials in style with our Cross-Body Bag, featuring a practical and fashionable design that you'll love."
 40,Leather Ankle Boots,79.99,10,5,/images/prod_images/leather-ankle-boots.png,"Step up your shoe game with our Leather Ankle Boots, featuring a classic and stylish design that's perfect for any outfit."
 41,Printed Scarf,19.99,30,6,/images/prod_images/printed-scarf.png,"Add some color to your look with our Printed Scarf, featuring a fun and playful design that's perfect for any season."
-42,Textured Sweater,39.99,20,13,/images/prod_images/textured-sweater.png,"Stay cozy and stylish with our Textured Sweater, featuring a warm and comfortable design that's perfect for those chilly days."
+42,Textured Sweater,39.99,20,14,/images/prod_images/textured-sweater.png,"Stay cozy and stylish with our Textured Sweater, featuring a warm and comfortable design that's perfect for those chilly days."
 43,Leather Jacket,129.99,5,4,/images/prod_images/leather-jacket.jpg,"Elevate your wardrobe with our Leather Jacket, featuring a sleek and sophisticated design that's perfect for any occasion."
 44,Polka Dot Blouse,29.99,25,13,/images/prod_images/polka-dot-blouse.png,"Add some fun to your wardrobe with our Polka Dot Blouse, featuring a playful and versatile design."
 45,Cargo Pants,34.99,30,10,/images/prod_images/cargo-pants.png,"Stay comfortable and stylish in our Cargo Pants, featuring a practical and fashionable design that you'll love."

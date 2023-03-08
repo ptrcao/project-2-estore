@@ -1,7 +1,9 @@
 
-![Suits](/readme-ss-localhost_3001_product-category_4.png)
+![Product Category: Suits](/readme-ss-localhost_3001_product-category_4.png)
 ![Product](/readme-ss-localhost_3001_product_31.png)
-![Product](/readme-ss-localhost_3001_.png)
+![Home Page](/readme-ss-localhost_3001_.png)
+![Checkout](/localhost_3001_checkout.png)
+![Thank you Page](/localhost_3001_thank-you_11.png)
 ## Useage
 
 1. Install all required npm packages:
