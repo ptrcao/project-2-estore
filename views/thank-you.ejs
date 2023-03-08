@@ -13,13 +13,68 @@
 
         <h1>Thank you for your order!</h1>
         
-
+          <!-- customer data -->
+          <h2>Customer Information</h2>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+            </tr>
+            <tr>
+              <td><%= customerData[0].id %></td>
+              <td><%= customerData[0].customer_first_name %></td>
+              <td><%= customerData[0].customer_last_name %></td>
+              <td><%= customerData[0].customer_email %></td>
+              <td><%= customerData[0].customer_phone_number %></td>
+            </tr>
+          </table>
+          
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Shipping Address</th>
+                          <th>Billing Address</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <ul>
+                              <li><%= shippingData[0].receiver_first_name %> <%= shippingData[0].receiver_last_name %></li>
+                              <li><%= shippingData[0].company_name %></li>
+                              <li><%= shippingData[0].address_line_1 %></li>
+                              <% if(shippingData[0].address_line_2) { %>
+                                <li><%= shippingData[0].address_line_2 %></li>
+                              <% } %>
+                              <li><%= shippingData[0].state %></li>
+                              <li><%= shippingData[0].postcode %></li>
+                              <li><%= shippingData[0].country %></li>
+                              <li><%= shippingData[0].receiver_phone_number %></li>
+                            </ul>
+                          </td>
+                          <td>
+                            <ul>
+                              <li><%= billingData[0].company_name %></li>
+                              <li><%= billingData[0].address_line_1 %></li>
+                              <% if(billingData[0].address_line_2) { %>
+                                <li><%= billingData[0].address_line_2 %></li>
+                              <% } %>
+                              <li><%= billingData[0].state %></li>
+                              <li><%= billingData[0].postcode %></li>
+                              <li><%= billingData[0].country %></li>
+                            </ul>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
 
         
         <table>
             <thead>
               <tr>
-                <th>Id</th>
                 <th>Image</th>
                 <th>Product Name</th>
                 <th>Price</th>
@@ -30,9 +85,9 @@
             <tbody>
               <% for(let i = 0; i < productData.length; i++) { %>
                 <tr>
-                  <td><%= productData[i].id %></td>
+                  <td></td>
                   <td><img src="<%= productData[i].product_image %>" alt="<%= productData[i].product_name %>"></td>
-                  <td><%= productData[i].product_name %></td>
+                  <td>#<%= productData[i].id %> <%= productData[i].product_name %></td>
                   <td><%= productData[i].price %></td>
                   <td><%= getValueByKey(productQtyPairs,productData[i].id) %></td>
                   <td> <%= productData[i].price * getValueByKey(productQtyPairs,productData[i].id) %></td>
@@ -42,63 +97,7 @@
           </table>
 
           
-          <!-- customer data -->
-<h2>Customer Information</h2>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Email</th>
-    <th>Phone Number</th>
-  </tr>
-  <tr>
-    <td><%= customerData[0].id %></td>
-    <td><%= customerData[0].customer_first_name %></td>
-    <td><%= customerData[0].customer_last_name %></td>
-    <td><%= customerData[0].customer_email %></td>
-    <td><%= customerData[0].customer_phone_number %></td>
-  </tr>
-</table>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Shipping Address</th>
-                <th>Billing Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <ul>
-                    <li><%= shippingData[0].receiver_first_name %> <%= shippingData[0].receiver_last_name %></li>
-                    <li><%= shippingData[0].company_name %></li>
-                    <li><%= shippingData[0].address_line_1 %></li>
-                    <% if(shippingData[0].address_line_2) { %>
-                      <li><%= shippingData[0].address_line_2 %></li>
-                    <% } %>
-                    <li><%= shippingData[0].state %></li>
-                    <li><%= shippingData[0].postcode %></li>
-                    <li><%= shippingData[0].country %></li>
-                    <li><%= shippingData[0].receiver_phone_number %></li>
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    <li><%= billingData[0].company_name %></li>
-                    <li><%= billingData[0].address_line_1 %></li>
-                    <% if(billingData[0].address_line_2) { %>
-                      <li><%= billingData[0].address_line_2 %></li>
-                    <% } %>
-                    <li><%= billingData[0].state %></li>
-                    <li><%= billingData[0].postcode %></li>
-                    <li><%= billingData[0].country %></li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
    
     <script src="/js/cart.js"></script>
   </body>
