@@ -32,7 +32,7 @@ app.use(
   })
 );
 
-app.use(session(sess));
+
 
 const PORT = 3001;
 

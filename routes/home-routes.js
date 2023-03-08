@@ -1,9 +1,10 @@
-const withAuth = ('auth.js');
+const withAuth = require('../public_html/auth');
+
 const router = require('express').Router();
 const {Product} = require('../models');
 
 
-router.get ('/', async (req,res)=> {
+router.get ('/',  async (req,res)=> {
 try {
     const dbProductData = await Product.findAll({
         include: [
