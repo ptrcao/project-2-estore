@@ -134,7 +134,7 @@ const productData = await Product.findAll({
   });
 
   console.log("----------------------------------------------------")
-  console.log(productData)
+  console.log(productIdsGetValuesArray)
   console.log("----------------------------------------------------")
 
   // GIVES:
