@@ -256,12 +256,12 @@ app.post("/api/checkout", (req, res) => {
 
   const body = req.body;
   console.log(body);
-  insertOrder(body);
-  res.redirect("api/thank-you/:order-id");
+  insertOrder(body, cartItems);
+  res.redirect("/thank-you/:order-id");
 });
 
 const thankYouRoute = require("./routes/thankYouRoute");
-app.use("/api/thank-you", thankYouRoute);
+app.use("/thank-you", thankYouRoute);
 
 // Connect to the database before starting the Express.js server
 sequelize.sync().then(() => {
