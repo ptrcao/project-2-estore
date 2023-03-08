@@ -575,3 +575,23 @@ footer {
   font-size: 1.4rem;
   font-weight: bold;
 }
+
+/* Thank you page */
+.prod-thumbnail{
+  width: 100px;
+  height: auto;
+}
+
+.order-summary-container{
+  text-align: center;
+}
+
+.order-summary-container table{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.order-summary-container table th, .order-summary-container table td {
+  padding: 4px;
+}

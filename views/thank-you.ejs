@@ -10,8 +10,8 @@
   <body>
         <!-- Navbar with Mega Menu -->
         <%- include('./navbar.ejs') %>
-
-        <h1>Thank you for your order!</h1>
+    <div class="order-summary-container">
+        <h1>Thank you for your order (No. #<%= orderId %>)!</h1>
         
           <!-- customer data -->
           <h2>Customer Information</h2>
@@ -24,7 +24,7 @@
               <th>Phone Number</th>
             </tr>
             <tr>
-              <td><%= customerData[0].id %></td>
+              <td>#<%= customerData[0].id %></td>
               <td><%= customerData[0].customer_first_name %></td>
               <td><%= customerData[0].customer_last_name %></td>
               <td><%= customerData[0].customer_email %></td>
@@ -71,7 +71,7 @@
                       </tbody>
                     </table>
 
-        
+        <h2>Product Information</h2>
         <table>
             <thead>
               <tr>
@@ -82,20 +82,28 @@
                 <th>Line Total</th>
               </tr>
             </thead>
+
             <tbody>
+              <% let grandTotal = 0 %>
               <% for(let i = 0; i < productData.length; i++) { %>
                 <tr>
-                  <td><img src="<%= productData[i].product_image %>" alt="<%= productData[i].product_name %>"></td>
+                  <td><img class="prod-thumbnail" src="<%= productData[i].product_image %>" alt="<%= productData[i].product_name %>"></td>
                   <td>#<%= productData[i].id %> <%= productData[i].product_name %></td>
                   <td><%= productData[i].price %></td>
                   <td><%= getValueByKey(productQtyPairs,productData[i].id) %></td>
-                  <td> <%= productData[i].price * getValueByKey(productQtyPairs,productData[i].id) %></td>
+                  <% let lineTotal = productData[i].price * getValueByKey(productQtyPairs,productData[i].id) %>
+                  <td><%= lineTotal %></td>
                 </tr>
+                <% grandTotal += lineTotal %>
               <% } %>
+              <tr>
+                <td colspan="4" style="text-align: right;"><strong>Grand Total:</strong></td>
+                <td><strong><%= grandTotal %></strong></td>
+              </tr>
             </tbody>
           </table>
 
-          
+        </div> 
 
    
     <script src="/js/cart.js"></script>
