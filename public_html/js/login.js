@@ -27,31 +27,3 @@ form.addEventListener('submit', (e) => {
   })
 })
 
-document
-.querySelector('.signup-form')
-.addEventListener('submit', signupFormHandler);
-
-
-loginForm.addEventListener('click', (e) => {
-    const form = new FormData(loginForm);
-    const formObject = {};
-    for (const [key, value] of form.entries()) {
-        formObject[key] = value;
-    }
-    fetch('/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formObject)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-    })
-    .catch(error => {
-        console.error('There was an error submitting the form:', error);
-    });
-    
-})
