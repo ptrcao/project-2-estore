@@ -12,7 +12,7 @@ const { BillingAddress,
 } = require('../models');
 
 
-const ProductCategoryGender = require('../models/Product_Category_gender');
+const ProductCategoryGender = require('../models/Product_Category_Gender');
 const ShippingAddress = require('../models/Shipping_Address');
 
 const seedAll = async() => {
