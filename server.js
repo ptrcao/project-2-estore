@@ -34,7 +34,6 @@ app.use(
 
 
 
-const PORT = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -162,7 +161,7 @@ catch(err){
 
 // Connect to the database before starting the Express.js server
 sequelize.sync({force : false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+  app.listen(process.env.PORT || 3001, () => console.log(`Now listening on port `));
 });
 
 
