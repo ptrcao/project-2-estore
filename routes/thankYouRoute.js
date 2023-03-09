@@ -178,9 +178,9 @@ console.log([orderProductData, productData, shippingData, billingData, customerD
   }).join(''));
 
   var megaMenuArray = await getArrayForDeptAndCatMegaMenu()
+  const loggedIn = req.session.loggedIn
 
-
-     res.render('thank-you.ejs', { megaMenuArray, productQtyPairs, getValueByKey, orderId, orderProductData, productData, shippingData, billingData, customerData })
+     res.render('thank-you.ejs', { megaMenuArray, loggedIn, productQtyPairs, getValueByKey, orderId, orderProductData, productData, shippingData, billingData, customerData })
 });
 
 
