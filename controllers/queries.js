@@ -55,7 +55,7 @@ const { BillingAddress,
 //     })
 
 
-async function insertOrder(reqBody, cartItems){
+async function insertOrder(reqBody, cartItems, customerId){
 
 // COMPLETE SCENARIO: How to enter a new order into the database:
 
@@ -63,22 +63,22 @@ async function insertOrder(reqBody, cartItems){
 
 // raw equivalient: `INSERT INTO customer (customer_first_name, customer_last_name, customer_email, customer_phone_number)`
 // VALUES ('${reqBody.customerFirstName}', '${reqBody.customerLastName}', '${reqBody.customerEmail}', '${reqBody.customerPhoneNumber}');`
-const insertCustomer = await Customer.create(
-    {
-        customer_first_name: reqBody.customerFirstName,
-        customer_last_name: reqBody.customerLastName,
-        customer_email: reqBody.customerEmail,
-        customer_phone_number: reqBody.customerPhoneNumber,
-    }, 
-{ raw: true }
-)
-console.log('insertCustomer')
+// const insertCustomer = await Customer.create(
+//     {
+//         customer_first_name: reqBody.customerFirstName,
+//         customer_last_name: reqBody.customerLastName,
+//         customer_email: reqBody.customerEmail,
+//         customer_phone_number: reqBody.customerPhoneNumber,
+//     }, 
+// { raw: true }
+// )
+// console.log('insertCustomer')
 
 // Get the customer_id for the new customer
-let [customerId] = (await sequelize.query('SELECT LAST_INSERT_ID() as id'));
+// let [customerId] = (await sequelize.query('SELECT LAST_INSERT_ID() as id'));
 // as because otherwise trying to access with dot notation becomes .LAST_INSERT_ID() which could be confused as a function
-customerId = customerId[0].id
-console.log('Got customerId: ' + customerId)
+// customerId = customerId[0].id
+// console.log('Got customerId: ' + customerId)
 
 // Insert the billing address if it does not exist
 // `INSERT INTO billing_address (company_name, address_line_1, address_line_2, state, postcode, country)

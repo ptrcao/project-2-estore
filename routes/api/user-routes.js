@@ -3,13 +3,12 @@ const {  Customer } = require('../../models');
 const bcrypt = require('bcrypt');
 router.post('/', async (req, res) => {
     try {
-     await Customer.create(req.body);
+     const UserData = await Customer.create(req.body)
      req.session.loggedIn = true;
      req.session.user_id = UserData.dataValues.id;
-   
+     return res.sendStatus(200);
     } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
+      res.status(500).json({message: err.message});
     }
   });
   
@@ -50,11 +49,12 @@ router.post('/login', async (req, res) => {
   });
   
   // Logout
-  router.post('/logout', (req, res) => {
+  router.get('/logout', (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
       });
+      return res.redirect('/');
     } else {
       res.status(404).end();
     }

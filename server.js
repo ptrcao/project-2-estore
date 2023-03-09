@@ -10,7 +10,7 @@ const session = require("express-session");
 const routes = require('./routes');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 // const routes = require('./controllers')
-
+const {insertOrder} = require('./controllers/queries')
 
 const sequelize = require("./config/connection");
 
@@ -116,7 +116,7 @@ try{
   });
   const body = req.body;
   console.log(body);
-  const orderId = await insertOrder(body, cartItems);
+  const orderId = await insertOrder(body, cartItems, req.session.user_id);
 
   //res.redirect("/thank-you/:order-id");
   res.json({

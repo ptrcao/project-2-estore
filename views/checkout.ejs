@@ -30,8 +30,10 @@
               class="user"
               type="text"
               id="customer-first-name"
+              value="<%= customerData.customer_first_name %>"
               name="customerFirstName"
               placeholder="Jane"
+              readonly
               required
             />
           </div>
@@ -40,6 +42,8 @@
             <input
               class="user"
               type="text"
+              readonly
+              value="<%= customerData.customer_last_name %>"
               id="customer-last-name"
               name="customerLastName"
               placeholder="Smith"
@@ -57,7 +61,9 @@
               class="user"
               type="email"
               id="customer-email"
+              value="<%= customerData.customer_email %>"
               name="customerEmail"
+              readonly
               placeholder="janesmith@outlook.com"
               required
             />
@@ -67,6 +73,8 @@
             <input
               class="user"
               type="tel"
+              value="<%= customerData.customer_phone_number %>"
+              readonly
               max="10"
               id="customer-phone-number"
               name="customerPhoneNumber"

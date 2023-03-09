@@ -1,3 +1,4 @@
+
 .nav {
     display: flex;
     flex-direction: row;
@@ -12,11 +13,16 @@
 }
 .nav > ul {
     display: flex;
+    align-items: center;
     gap: 100px;
     font-size: 2rem;
 }
  li {
     list-style: none;
+}
+.auth {
+    display: flex;
+    align-items: center;
 }
 .nav__megamenu {
     position: absolute;

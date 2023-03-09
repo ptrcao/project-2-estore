@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
 </head>
 <nav class="nav">
   <a href="/" class="nav__logo">
@@ -30,15 +31,23 @@
       </li>
       <% }); %>
   </ul>
+  <div class="auth">
+  <% if (loggedIn) { %>
+    <a href="/api/users/logout">Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+    <%} else { %>
+      <a href="/login"> Sign In <i class="fa fa-sign-in" aria-hidden="true"></i> </a>
+    <% } %>
+  </div>
+
   <div id="cart-hover">
     <li class="nav__item nav__cart">
       <a href="/cart" class="nav__link"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
           <p id="cart-quantity"></p>
         </i></a>
+        
       <div class="cart-items">
         <div class="cart">
           <ul>
-
           </ul>
         </div>
     </li>
