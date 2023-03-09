@@ -2,6 +2,10 @@ nav > ul > li {
   display: inline-block;
 }
 
+a{
+  text-decoration: none;
+}
+
 .card img {
   width: 200px;
 }
@@ -69,7 +73,15 @@ body {
   color: #023047;
   font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
+  padding: 4px;
 }
+
+.nav__megamenu a:hover {
+  background: lightgray;
+}
+
+nav li{display:inline-block;}
 
 .hamburger {
   /* margin-right: 30px; */
@@ -133,13 +145,14 @@ body {
 }
 
 .box a {
-  color: black;
+  color: black!important;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #f2f2f2;
   opacity: 0.6;
+  text-decoration: none;
 }
 
 .box:first-child {
@@ -461,6 +474,8 @@ footer {
   float: right;
 }
 
+
+
 .cart-container {
   color: #023047;
   margin: auto;
@@ -472,6 +487,17 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
+/* Fix Continue To Checkout button which had same font as background */
+
+.continue-btn{
+  color: white;
+
+}
+.continue-btn a{
+text-decoration: none;
+}
+
 
 .cart {
   margin: 50px;
@@ -547,6 +573,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Added to centre photos */
+  margin:auto;
 }
 .product > div {
   display: flex;
@@ -595,3 +623,20 @@ footer {
 .order-summary-container table th, .order-summary-container table td {
   padding: 4px;
 }
+
+/* Disable visited link due to being ineligible in text overlays on homepage */
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+/* Outline heading in white for legibility in text overlays */
+.dept-title{
+/* color: white; */
+background-color: white;
+/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+opacity: 0.6;
+}
+
+/* a .home-dept-title{
+  color: black
+} */
