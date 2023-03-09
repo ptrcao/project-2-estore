@@ -65,7 +65,7 @@ When a customer finds a product they want to purchase, they can click the "Add t
 ### Sign up and login/logout
 Before the user is able to checkout their cart, they must have a customer account.  The opportunity is presented to do so, or log in to an existing account, in the leadup to checkout.
 
-[Screenshot goes here]
+![Login required](/localhost_3001_login.png)
 
 ### Checkout
 When the customer is ready to checkout, they can click on the cart icon and select "Checkout". If it's their first time checking out, they will be presented with a sign-up form where they can create an account. After signing up, they will then be presented with an order form where they can enter their shipping and payment information.
