@@ -2,6 +2,10 @@ nav > ul > li {
   display: inline-block;
 }
 
+a{
+  text-decoration: none;
+}
+
 .card img {
   width: 200px;
 }
