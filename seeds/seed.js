@@ -26,9 +26,9 @@ console.log('\n----- DATABASE SYNCED -----\n');
 // const customerData = await readCSV('./csv/customer.csv');
 // across different OSs
 
-const customerData = await readCSV(path.join(__dirname, 'csv', 'customer.csv'));
-await Customer.bulkCreate(customerData);
-console.log('\n----- customer SEEDED -----\n');
+// const customerData = await readCSV(path.join(__dirname, 'csv', 'customer.csv'));
+// await Customer.bulkCreate(customerData);
+// console.log('\n----- customer SEEDED -----\n');
 
 // The error message indicates that you are still facing a foreign key constraint error in the order_product table. This error occurs when you try to add a row to the child table (order_product) that references a non-existent row in the parent table (order).
 
@@ -38,17 +38,17 @@ console.log('\n----- customer SEEDED -----\n');
 
 // Lastly, ensure that the order_product table is defined with the foreign key constraint properly referencing the id column in the order table.
 
-const billingAddressData = await readCSV(path.join(__dirname, 'csv', 'billing_address.csv'));
-await BillingAddress.bulkCreate(billingAddressData);
-console.log('\n----- billing_address SEEDED -----\n');
+// const billingAddressData = await readCSV(path.join(__dirname, 'csv', 'billing_address.csv'));
+// await BillingAddress.bulkCreate(billingAddressData);
+// console.log('\n----- billing_address SEEDED -----\n');
 
-const shippingAddressData = await readCSV(path.join(__dirname, 'csv', 'shipping_address.csv'));
-await ShippingAddress.bulkCreate(shippingAddressData);
-console.log('\n----- shipping_addresses SEEDED -----\n');
+// const shippingAddressData = await readCSV(path.join(__dirname, 'csv', 'shipping_address.csv'));
+// await ShippingAddress.bulkCreate(shippingAddressData);
+// console.log('\n----- shipping_addresses SEEDED -----\n');
 
-const orderData = await readCSV(path.join(__dirname, 'csv', 'order.csv'));
-await Order.bulkCreate(orderData);
-console.log('\n----- order SEEDED -----\n');
+// const orderData = await readCSV(path.join(__dirname, 'csv', 'order.csv'));
+// await Order.bulkCreate(orderData);
+// console.log('\n----- order SEEDED -----\n');
 
 // The problem was that the order table was being seeded before the billing_address table.
 
@@ -72,9 +72,9 @@ const productData = await readCSV(path.join(__dirname, 'csv', 'product.csv'));
 await Product.bulkCreate(productData);
 console.log('\n----- product SEEDED -----\n');
 
-const orderProductData = await readCSV(path.join(__dirname, 'csv', 'order_product.csv'));
-await OrderProduct.bulkCreate(orderProductData);
-console.log('\n----- order_product SEEDED -----\n');
+// const orderProductData = await readCSV(path.join(__dirname, 'csv', 'order_product.csv'));
+// await OrderProduct.bulkCreate(orderProductData);
+// console.log('\n----- order_product SEEDED -----\n');
 
 // The error message indicates a foreign key constraint error when trying to insert data into the order_product table. Specifically, it says that the child row cannot be added or updated because a foreign key constraint fails (estore_db.order_product, CONSTRAINT order_product_ibfk_2 FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE ON UPDATE CASCADE).
 

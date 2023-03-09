@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+
+  <header class="login-header">
+    <img src="./images/logo/impress-apparel.png" alt="logo" />
+  </header>
+  <body>
+    <form class="details-section">
+      <div class="signup-card">
+        <h3>Sign Up</h3>
+        <div class="signup">
+          <div>Email</div>
+          <input
+            class="user"
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+          />
+          <div>Confirm Email</div>
+          <input
+            class="user"
+            type="text"
+            id="email-2"
+            name="email-2"
+            placeholder="Re-enter email"
+          />
+        </div>
+        <div>Set password</div>
+        <input
+          class="user"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+        <div>
+          <div>
+            <div>Confirm password</div>
+            <input
+              class="user"
+              type="password"
+              id="password-2"
+              name="password-2"
+              placeholder=" Re-enter Password"
+            />
+            <div>
+              <div class="signup">
+                <div>First Name</div>
+                <input
+                  class="user"
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  placeholder="First Name"
+                />
+              </div>
+              <div>Last Name</div>
+              <input
+                class="user"
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Last Name"
+              />
+            </div>
+            <div>
+              <button type="submit" class="login-btn">Sign Up</button>
+            </div>
+          </div>
+          <div class="already-member"><a href="url">Already a member?</a></div>
+        </div>
+      </div>
+    </form>
+
+    <footer>
+      <h3 class="footer"><a href="Contact Us">Contact Us</a></h3>
+      <h3 class="footer"><a href="Returns">Returns</a></h3>
+    </footer>
+  </body>
+  <script>
+    const form = document.querySelector(".details-section");
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const userObject = {};
+        for (const [key, value] of formData.entries()) {
+        userObject[key] = value;
+      }
+      if (userObject["password"] !== userObject['password-2']) {
+        alert('Passwords do not match');
+        return;
+      }
+        if (userObject["email"] !== userObject['email-2']) {
+            alert('Emails do not match');
+            return;
+        }
+        fetch('/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({customer_email: userObject['email'], customer_password: userObject['password'], customer_first_name: userObject['first-name'], customer_last_name: userObject['last-name']})
+        })
+        .then(res=>res.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert('User created successfully');
+                window.location.href = '/';
+            }
+        })
+    })
+  </script>
+</html>
