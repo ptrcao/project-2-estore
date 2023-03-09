@@ -133,13 +133,14 @@ body {
 }
 
 .box a {
-  color: black;
+  color: black!important;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #f2f2f2;
   opacity: 0.6;
+  text-decoration: none;
 }
 
 .box:first-child {
@@ -595,3 +596,20 @@ footer {
 .order-summary-container table th, .order-summary-container table td {
   padding: 4px;
 }
+
+/* Disable visited link due to being ineligible in text overlays on homepage */
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+/* Outline heading in white for legibility in text overlays */
+.dept-title{
+/* color: white; */
+background-color: white;
+/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+opacity: 0.6;
+}
+
+/* a .home-dept-title{
+  color: black
+} */
