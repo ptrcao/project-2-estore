@@ -470,6 +470,8 @@ footer {
   float: right;
 }
 
+
+
 .cart-container {
   color: #023047;
   margin: auto;
@@ -481,6 +483,17 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
+/* Fix Continue To Checkout button which had same font as background */
+
+.continue-btn{
+  color: white;
+
+}
+.continue-btn a{
+text-decoration: none;
+}
+
 
 .cart {
   margin: 50px;
