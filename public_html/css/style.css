@@ -69,7 +69,15 @@ body {
   color: #023047;
   font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
+  padding: 4px;
 }
+
+.nav__megamenu a:hover {
+  background: lightgray;
+}
+
+nav li{display:inline-block;}
 
 .hamburger {
   /* margin-right: 30px; */
