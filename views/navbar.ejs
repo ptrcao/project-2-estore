@@ -6,7 +6,7 @@
   <a href="/" class="nav__logo">
     <!-- Add your logo HTML here -->
     <img src="/images/logo/impress-apparel.png">
-    <script src="/js/navBar.js" defer></script>
+  
   </a>
   <ul>
     <% megaMenuArray.forEach(function(productCategoryGender) { %>
@@ -53,5 +53,50 @@
     </li>
   </div>
   </div>
+  <div id="hamburger">
+    <a href="/cart" class="cart-ham"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
+      <p id="cart-quantity"></p>
+    </i></a>
+    <button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+    </button>
+    
+    <div class="hamburger-content">
+      <% megaMenuArray.forEach(function(productCategoryGender) { %>
+        <li class="">
+          <div class="">
+            <div class="hamburger-cat">
+              <a href="/product-categories/<%=productCategoryGender.id%>" class="nav__link">
+                <%= productCategoryGender.product_category_gender_name %>
+              </a>
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="18" y1="13" x2="12" y2="19" />
+                <line x1="6" y1="13" x2="12" y2="19" />
+              </svg>
+            </div>
+           
+            <ul class="hamburger-second">
+              <% productCategoryGender.product_categories.forEach(function(productCategory) { %>
+                <li><a href="/product-category/<%=productCategory.id%>">
+                    <%= productCategory.product_category_name %>
+                  </a><div></div></li>
+                <% }); %>
+                
+            </ul>
+            
+          </div>
+  
+        </li>
+        <% }); %>
+    </div>
+  </div>
 
+  <script src="/js/navBar.js" defer></script>
 </nav>

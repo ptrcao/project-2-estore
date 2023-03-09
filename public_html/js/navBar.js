@@ -67,3 +67,31 @@ cartHover.addEventListener('mouseover', async (e) => {
     
   })
 })
+const hamburger = document.querySelector('.icon-tabler-menu-2')
+hamburger.addEventListener('click', (e) => {
+  const hamburgerContent = document.querySelector('.hamburger-content')
+  hamburgerContent.style.display = "flex"
+  document.addEventListener('click', (e) => {
+    if (!hamburger.parentElement.parentElement.contains(e.target)) {
+      hamburgerContent.style.display = "none"
+    }
+  })
+})
+const els = document.querySelectorAll('.icon-tabler-arrow-down');
+els.forEach(el=>{
+  el.addEventListener('click', (e) => {
+    const content = (el.parentElement.parentElement.children[[1]])
+    if (content.style.display === "flex") {
+      content.style.display = "none"
+      return;
+    }
+    const allEls = document.querySelectorAll('.hamburger-second')
+    allEls.forEach(aEl=>{
+      aEl.style.display = "none"
+    })
+   
+    console.log(content.style.display)
+   
+   content.style.display = "flex"
+  })
+})
