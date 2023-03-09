@@ -8,7 +8,6 @@ window.onload = function() {
         return response.json();
     })
     .then(data => {
-        console.log(data);
         carQuantity.innerHTML = data.numItems;
     })
 }
@@ -90,7 +89,7 @@ els.forEach(el=>{
       aEl.style.display = "none"
     })
    
-    console.log(content.style.display)
+
    
    content.style.display = "flex"
   })

@@ -48,7 +48,6 @@ form.addEventListener('submit', function(event) {
   return response.json();
 })
 .then(data => {
-  console.log(data);
   // redirect to order confirmation page
   window.location.replace('/thank-you/'+data.orderId)
 })

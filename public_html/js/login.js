@@ -49,9 +49,9 @@ loginForm.addEventListener('click', (e) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        return response.json();
     })
-    .then(data => {
-        console.log(data);
-    })
+    .catch(error => {
+        console.error('There was an error submitting the form:', error);
+    });
+    
 })

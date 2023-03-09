@@ -6,7 +6,6 @@ console.log(cartBtns)
 cartBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         const id = e.target.closest('.product').dataset.product_id;
-        console.log(id);
         fetch('/api/cart', {
             method: 'POST',
             headers: {'content-type': 'application/json'},

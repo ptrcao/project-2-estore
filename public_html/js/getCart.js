@@ -16,13 +16,13 @@ fetch('api/cart')
     totalItems.innerText = data.numItems;
     totalCost.innerText = `$${data.total}`;
     cartItems.innerHTML = "";
-    console.log(data);
+
 
     data.items.forEach((item) => {
         const selectArray = new Array(item.amount + 10).fill(0).map((item, index)=>{
             return index;
         });
-        console.log(selectArray)
+      
         cartItems.innerHTML += `
         <div class="item">
         <a class="view-cart" href="#">${item.product_name} x ${item.amount}</a>
@@ -43,7 +43,7 @@ fetch('api/cart')
         item.addEventListener('change', (e) => {
             const id = e.target.dataset.id;
             const amount = e.target.value;
-            console.log(id, amount);
+            
             fetch('/api/cart', {
                 method: 'PUT',
                 headers: {'content-type': 'application/json'},
