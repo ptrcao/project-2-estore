@@ -9,6 +9,7 @@
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script src="/js/register.js" defer></script>
 </head>
 
 <header class="login-header">
@@ -42,7 +43,7 @@
                         <input class="user" type="text" id="last-name" name="last-name" placeholder="Last Name" />
                     </div>
                     <label>Phone number</label>
-                    <input class="user" type="number" id="phone-number" name="phone-number" placeholder="Last Name" />
+                    <input class="user" type="number" id="phone-number" name="phone-number" placeholder="Phone number" />
                     <p id="error"></p>
                     <div>
                         <button type="submit" class="login-btn">Sign Up</button>
@@ -58,44 +59,5 @@
         <h3 class="footer"><a href="Returns">Returns</a></h3>
     </footer>
 </body>
-<script>
-    const form = document.querySelector(".details-section");
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const userObject = {};
-        for (const [key, value] of formData.entries()) {
-            userObject[key] = value;
-        }
-        if (userObject["password"] !== userObject['password-2']) {
-            alert('Passwords do not match');
-            return;
-        }
-        if (userObject["email"] !== userObject['email-2']) {
-            alert('Emails do not match');
-            return;
-        }
-        fetch('/api/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ customer_email: userObject['email'], customer_password: userObject['password'], customer_first_name: userObject['first-name'], customer_last_name: userObject['last-name'], customer_phone_number: userObject['phone-number'] })
-        })
-            .then(res => {
-                if (response.ok) {
-                    window.location = document.referrer;
-                } else {
-                    return res.json();
-                }
-            })
-            .then(data => {
-                if (data.message) {
-                    const error = document.querySelector('#error');
-                    error.innerText = data.message;
-                }
-            })
-    })
-</script>
 
 </html>
