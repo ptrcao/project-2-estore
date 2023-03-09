@@ -58,11 +58,7 @@ app.set("view engine", "ejs");
 // });
 // app.use(routes);
 
-// const checkoutRoutes = require('./routes/api/checkoutRoutes');
 
-// app.use(
-// '/checkout'
-// )
 
 // Expose the public_html folder to the client-side
 app.use(express.static("public_html"));
@@ -105,23 +101,36 @@ async function getArrayForDeptAndCatMegaMenu() {
 
 
 
-// // CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, PRODUCT DETAILS
-// app.post("/api/checkout", (req, res) => {
-//   const cart = req.session?.cart;
-//   if (!cart) {
-//     res.status(400).json({ error: "No cart" });
-//     return;
-//   }
-//   // All items in the cart and their quantities
-//   const cartItems = req.session.cart.items.map((item) => {
-//     return { id: item.id, qty: item.amount };
-//   });
 
-//   const body = req.body;
-//   console.log(body);
-//   insertOrder(body, cartItems);
-//   res.redirect("/thank-you/:order-id");
-// });
+// CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, SHIPPING DETAILS, PRODUCT DETAILS, REDIRECTS TO THANK YOU PAGE
+app.post("/checkout", async (req, res) => {
+try{   
+  const cart = req.session?.cart;
+  if (!cart) {
+    res.status(400).json({ error: "No cart" });
+    return;
+  }
+  // All items in the cart and their quantities
+  const cartItems = req.session.cart.items.map((item) => {
+    return { id: item.id, qty: item.amount };
+  });
+  const body = req.body;
+  console.log(body);
+  const orderId = await insertOrder(body, cartItems);
+
+  //res.redirect("/thank-you/:order-id");
+  res.json({
+    'orderId': orderId
+  }) 
+}
+catch(err){ 
+  console.error(err)
+  res.status(500).send(err); 
+}
+
+  
+  
+});
 
 
 

@@ -33,7 +33,7 @@ form.addEventListener('submit', function(event) {
     formObject[key] = value;
   }
   
-  fetch('/api/checkout', {
+  fetch('/checkout', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -50,6 +50,7 @@ form.addEventListener('submit', function(event) {
 .then(data => {
   console.log(data);
   // redirect to order confirmation page
+  window.location.replace('/thank-you/'+data.orderId)
 })
 .catch(error => {
   console.error('There was an error submitting the form:', error);
