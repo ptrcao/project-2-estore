@@ -123,8 +123,7 @@ async function getArrayForDeptAndCatMegaMenu() {
 //   res.redirect("/thank-you/:order-id");
 // });
 
-const thankYouRoute = require("./routes/thankYouRoute");
-app.use("/thank-you", thankYouRoute);
+
 
 
 // app.get("/thankyou/:id", async (req, res) => {

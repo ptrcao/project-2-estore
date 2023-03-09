@@ -1,15 +1,24 @@
-const withAuth = require('../public_html/auth');
-const router = require('express').Router();
-const {Product, ProductCategoryGender, ProductCategory} = require('../models');
-const { getArrayForDeptAndCatMegaMenu } = require('../helpers/getMegaMenuCategories');
+const withAuth = require("../public_html/auth");
+const router = require("express").Router();
+const {
+  Product,
+  ProductCategoryGender,
+  ProductCategory,
+} = require("../models");
+const {
+  getArrayForDeptAndCatMegaMenu,
+} = require("../helpers/getMegaMenuCategories");
+const thankYouRoutes = require("./thankYouRoute");
 
+router.use("/thank-you", withAuth, thankYouRoutes);
 
-router.get("/", withAuth,  async (req, res) => {
+router.get("/", async (req, res) => {
+  console.log(req.session.loggedIn)
   //const withAuth = require(__dirname + '/public_html/auth.js');
-  // res.sendFile(path.join(__dirname + '/views/home.html')) 
+  // res.sendFile(path.join(__dirname + '/views/home.html'))
 
   // for navbar
-const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
+  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
 
   const getGenderDepartments = async () => {
     const productCategoryGenderData = await ProductCategoryGender.findAll({
@@ -29,7 +38,7 @@ const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
   res.render("home", { data, megaMenuArray });
 });
 
-router.get("/product-categories/:id", withAuth, async (req, res) => {
+router.get("/product-categories/:id", async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
   // for navbar
@@ -75,7 +84,7 @@ router.get("/product-categories/:id", withAuth, async (req, res) => {
   // res.redirect(`/product-category/${req.body}`);
 });
 
-router.get("/product-category/:id", withAuth, async (req, res) => {
+router.get("/product-category/:id", async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
   // for navbar
@@ -111,7 +120,7 @@ router.get("/product-category/:id", withAuth, async (req, res) => {
   // res.json( data )
   res.render("product-category", { data3, megaMenuArray });
 });
-router.get("/product/:id", withAuth, async (req, res) => {
+router.get("/product/:id", async (req, res) => {
   // res.sendFile(path.join(__dirname + '/views/home.html'))
 
   // for navbar
@@ -134,27 +143,31 @@ router.get("/product/:id", withAuth, async (req, res) => {
 
   const data4 = await getProductCategory();
 
-
-
   // res.json( data )
   res.render("product", { data4, megaMenuArray });
 });
- 
-router.get("/cart", withAuth, async (req, res) => {
+
+router.get("/cart", async (req, res) => {
   const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-  res.render("cart", {megaMenuArray});
+  res.render("cart", { megaMenuArray });
 });
-router.get("/checkout" , withAuth, (req, res) => {
+router.get("/checkout", withAuth, (req, res) => {
+
   res.sendFile(__dirname + "/public_html/checkout.html");
 });
-  router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  router.get("/register", (req, res) => {
     if (req.session.loggedIn) {
-      res.redirect('/');
+      res.redirect("/");
       return;
     }
-  
-    res.render('login');
+    res.render("register");
   });
-  
-  module.exports = router;
-  
+  res.render("login");
+});
+
+module.exports = router;
