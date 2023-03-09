@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <header class="login-header">
+    <img src="./images/logo/impress-apparel.png" alt="logo" />
+  </header>
+  <body>
+    <form class="details-section">
+      <div class="login-card">
+        <h3>Login</h3>
+        <div class="login">
+          <div>Email</div>
+          <input
+            class="user"
+            type="text"
+            id="email"
+            name="customer_email"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="login">
+          <div>Password</div>
+          <input
+            class="user"
+            type="text"
+            id="password"
+            name="password"
+            placeholder="customer_password"
+          />
+          <div>
+            <button type="submit" class="login-btn">Login</button>
+          </div>
+        </div>
+        <div class="already-member"><a href="/register">Not a member?</a></div>
+      </div>
+    </form>
+    <footer>
+      <h3>Contact Us</h3>
+      <h3>Returns</h3>
+    </footer>
+  </body>
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const userObject = {};
+      for (const [key, value] of formData.entries()) {
+        userObject[key] = value;
+      }
+      fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userObject)
+      })
+      .then(response => response.json())
+      .then(data=>{
+        console.log(data)
+      })
+    })
+  </script>
+</html>

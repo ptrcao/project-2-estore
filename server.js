@@ -7,10 +7,14 @@ const express = require("express");
 const router = require("express").Router();
 // Import the connection object
 const session = require("express-session");
+const routes = require('./routes');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const app = express();
 // const routes = require('./controllers')
+
+
 const sequelize = require("./config/connection");
+
+const app = express();
 
 app.use(
   session({
@@ -27,6 +31,9 @@ app.use(
     },
   })
 );
+
+
+
 const PORT = 3001;
 
 app.use(express.json());
@@ -55,6 +62,7 @@ app.set("view engine", "ejs");
 
 // Expose the public_html folder to the client-side
 app.use(express.static("public_html"));
+app.use(routes);
 // /product/:id
 // /product_categories/
 // pro
@@ -91,163 +99,8 @@ async function getArrayForDeptAndCatMegaMenu() {
   return productCategories;
 }
 
-app.get("/", async (req, res) => {
-  // res.sendFile(path.join(__dirname + '/views/home.html'))
-
-  // for navbar
-const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-
-  const getGenderDepartments = async () => {
-    const productCategoryGenderData = await ProductCategoryGender.findAll({
-      // include: [{
-      //   model: ProductCategory,
-      //   attributes: ['product_category_name', 'product_category_image', 'id'],
-      // }],
-      raw: true, // Set raw to true to get only the data
-    });
-
-    console.log(productCategoryGenderData);
-    return productCategoryGenderData;
-  };
-
-  const data = await getGenderDepartments();
-  // res.json( data )
-  res.render("home", { data, megaMenuArray });
-});
-
-app.get("/product-categories/:id", async (req, res) => {
-  // res.sendFile(path.join(__dirname + '/views/home.html'))
-
-  // for navbar
-  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-
-  const genderDepartmentId = req.params.id; // get the body of the req object
-
-  const getProductCategories = async () => {
-    const productCategoriesData = await ProductCategory.findAll({
-      where: {
-        product_category_gender_id: genderDepartmentId, // specify the condition for the 'id' column
-      },
-      raw: true, // Set raw to true to get only the data
-    });
-
-    // console.log(productCategoriesData);
-    return productCategoriesData;
-  };
-
-  const productCategoryGenderName = await ProductCategoryGender.findAll({
-    where: {
-      id: genderDepartmentId, // replace 3 with the desired id value
-    },
-    attributes: ["product_category_gender_name"], // select only the 'name' attribute
-    raw: true, // Set raw to true to get only the data
-  });
-
-  const data2 = await getProductCategories();
-  console.log("hello " + JSON.stringify(data2));
-
-  // Append data2 with genderDepartmentId
-  // data2.push(productCategoryGenderName)
-
-  data2.push(productCategoryGenderName[0].product_category_gender_name);
-
-  console.log(data2);
-  // res.json( body.id )
-  // console.log( req.body )
-  // res.json( data2 )
-
-  res.render(`product-categories`, { data2, megaMenuArray });
-
-  // res.redirect(`/product-category/${req.body}`);
-});
-
-app.get("/product-category/:id", async (req, res) => {
-  // res.sendFile(path.join(__dirname + '/views/home.html'))
-
-  // for navbar
-  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-
-  const productCategoryId = req.params.id;
-  console.log(productCategoryId);
-
-  const getProductCategory = async () => {
-    const productCategoryData = await Product.findAll({
-      where: {
-        product_category_id: req.params.id, // specify the condition for the 'id' column
-      },
-      raw: true, // Set raw to true to get only the data
-    });
-
-    console.log(productCategoryData);
-    return productCategoryData;
-  };
-
-  const data3 = await getProductCategory();
-
-  const productCategoryName = await ProductCategory.findAll({
-    where: {
-      id: productCategoryId, // replace 3 with the desired id value
-    },
-    attributes: ["product_category_name"], // select only the 'name' attribute
-    raw: true, // Set raw to true to get only the data
-  });
-
-  data3.push(productCategoryName[0].product_category_name);
-
-  // res.json( data )
-  res.render("product-category", { data3, megaMenuArray });
-});
-
-app.get("/product/:id", async (req, res) => {
-  // res.sendFile(path.join(__dirname + '/views/home.html'))
-
-  // for navbar
-  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-
-  const productId = req.params.id;
-  console.log(productId);
-
-  const getProductCategory = async () => {
-    const productData = await Product.findAll({
-      where: {
-        id: productId, // specify the condition for the 'id' column
-      },
-      raw: true, // Set raw to true to get only the data
-    });
-
-    console.log(productData);
-    return productData;
-  };
-
-  const data4 = await getProductCategory();
 
 
-
-  // res.json( data )
-  res.render("product", { data4, megaMenuArray });
-});
-
-app.get("/cart", async (req, res) => {
-  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-  res.render("cart", {megaMenuArray});
-});
-
-const { insertOrder } = require("./controllers/queries");
-
-// const checkoutRoutes = require('./routes/api/checkoutRoutes');
-
-
-
-app.get("/checkout", async (req, res) => {
-  try{
-  const megaMenuArray = await getArrayForDeptAndCatMegaMenu();
-  res.render(path.join(__dirname, 'views', 'checkout.ejs'), { megaMenuArray });
-  }
-  catch(err){
-    console.error(err);
-    res.status(500).send(err)
-  }
-});
 
 // CHECKOUT BUTTON --> INSERT NEW ORDER, CUSTOMER DETAILS, SHIPPING DETAILS, PRODUCT DETAILS, REDIRECTS TO THANK YOU PAGE
 app.post("/checkout", async (req, res) => {
@@ -279,8 +132,7 @@ catch(err){
   
 });
 
-const thankYouRoute = require("./routes/thankYouRoute");
-app.use("/thank-you", thankYouRoute);
+
 
 
 // app.get("/thankyou/:id", async (req, res) => {
