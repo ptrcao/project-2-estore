@@ -1,4 +1,4 @@
-# Project 2 e-Store
+# Project 2: Fullstack e-Store
 
 ![Home Page](/readme-assets/images/readme-ss-localhost_3001_.png)
 
