@@ -154,7 +154,7 @@ Click place order and wait for the product to arrive! -->
 
 Elisa Do - github: ED0920, elisa.do@outlook.com
 
-Peter Cao - github: ptrcao
+Peter Cao - github: ptrcao (ask via GitHub for email)
 
 Dylan Pham - github: dyalnpahm, dyalnpahm@gmail.com
 
