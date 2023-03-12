@@ -11,7 +11,6 @@
     - [Checkout](#checkout)
     - [Thank You Page](#thank-you-page)
 - [Installation](#installation)
-<!-- - [Usage](#usage) -->
 - [Technology](#technology)
 - [Credits](#credits)
 - [License](#license)
