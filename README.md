@@ -1,6 +1,6 @@
 # Project 2 e-Store
 
-![Home Page](/readme-ss-localhost_3001_.png)
+![Home Page](/readme-assets/images/readme-ss-localhost_3001_.png)
 
 ## Table of Contents
 - [Description](#description)
@@ -45,9 +45,9 @@ Customers can browse clothing by product category, including:
 * Womens Tops
 * Mens Tops
 
-![Product Category: Suits](/readme-ss-localhost_3001_product-category_4.png)
+![Product Category: Suits](/readme-assets/images/readme-ss-localhost_3001_product-category_4.png)
 
-![Product](/readme-ss-localhost_3001_product_31.png)
+![Product](/readme-assets/images/readme-ss-localhost_3001_product_31.png)
 
 ### Gender Departments
 Customers can also browse clothing by gender department, including:
@@ -60,22 +60,22 @@ Customers can also browse clothing by gender department, including:
 ### Adding Products to Cart
 When a customer finds a product they want to purchase, they can click the "Add to Cart" button. This will save the product selection in session storage and persist until the customer removes it from the cart.
 
-![Cart Page](/localhost_3001_cart.png)
+![Cart Page](/readme-assets/images/localhost_3001_cart.png)
 
 ### Sign up and login/logout
 Before the user is able to checkout their cart, they must have a customer account.  The opportunity is presented to do so, or log in to an existing account, in the leadup to checkout.
 
-![Login required](/localhost_3001_login.png)
+![Login required](/readme-assets/images/localhost_3001_login.png)
 
 ### Checkout
 When the customer is ready to checkout, they can click on the cart icon and select "Checkout". If it's their first time checking out, they will be presented with a sign-up form where they can create an account. After signing up, they will then be presented with an order form where they can enter their shipping and payment information.
 
-![Checkout Page](/localhost_3001_checkout.png)
+![Checkout Page](/readme-assets/images/localhost_3001_checkout.png)
 
 ### Thank You Page
 After completing the order form, the customer will be presented with a "thank you" page that summarizes their purchase. This page will include the product(s) purchased, the total cost, and shipping information.
 
-![Thank you Page](/localhost_3001_thank-you_11.png)
+![Thank you Page](/readme-assets/images/localhost_3001_thank-you_11.png)
 
 
 
