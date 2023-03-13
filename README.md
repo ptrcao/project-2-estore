@@ -10,7 +10,7 @@
     - [Adding Products to Cart](#adding-products-to-cart)
     - [Checkout](#checkout)
     - [Thank You Page](#thank-you-page)
-    - [Responsive capabilities](#responsive-capabilities)
+    - [Responsive Capabilities](#responsive-capabilities)
 - [Installation](#installation)
 - [Technology](#technology)
 - [Credits](#credits)
