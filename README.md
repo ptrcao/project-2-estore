@@ -1,6 +1,6 @@
 # Project 2: Fullstack e-Store
 
-![Home Page](/readme-assets/images/readme-ss-localhost_3001_.png)
+![Home Page](/readme-assets/images/home_project-2-fullstack-estore.herokuapp.com_.png)
 
 ## Table of Contents
 - [Description](#description)
@@ -10,6 +10,7 @@
     - [Adding Products to Cart](#adding-products-to-cart)
     - [Checkout](#checkout)
     - [Thank You Page](#thank-you-page)
+    - [Responsive capabilities](#responsive-capabilities)
 - [Installation](#installation)
 - [Technology](#technology)
 - [Credits](#credits)
@@ -76,7 +77,25 @@ After completing the order form, the customer will be presented with a "thank yo
 
 ![Thank you Page](/readme-assets/images/localhost_3001_thank-you_11.png)
 
+### Responsive Capabilities
 
+The website boasts responsive capabilities in all views at all levels of browsing.
+
+Home page (responsive):
+
+![Responsive Home Page](/readme-assets/images/responsive_project-2-fullstack-estore.herokuapp.com_.png)
+
+Product categories page (responsive):
+
+![Responsive Product Categories Page](/readme-assets/images/responsive_project-2-fullstack-estore.herokuapp.com_product-categories_2.png)
+
+Product category page (responsive):
+
+![Responsive Product Category Page](/readme-assets/images/project-2-fullstack-estore.herokuapp.com_product-category_2.png)
+
+Single product page (responsive):
+
+![Responsive Single Product Page](/readme-assets/images/project-2-fullstack-estore.herokuapp.com_product_5.png)
 
 ## Installation
 
