@@ -1,5 +1,7 @@
 # Project 2: Fullstack e-Store
 
+> Deployed link: https://project-2-fullstack-estore.herokuapp.com/
+
 ![Home Page](/readme-assets/images/home_project-2-fullstack-estore.herokuapp.com_.png)
 
 ## Table of Contents
@@ -96,6 +98,13 @@ Product category page (responsive):
 Single product page (responsive):
 
 ![Responsive Single Product Page](/readme-assets/images/project-2-fullstack-estore.herokuapp.com_product_5.png)
+
+Cart page (responsive):
+
+![Responsive Cart Page](/readme-assets/images/responsive_project-2-fullstack-estore.herokuapp.com_cart.png)
+
+
+
 
 ## Installation
 
